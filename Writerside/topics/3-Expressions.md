@@ -1,18 +1,18 @@
 # 3. Expressions
 
-Binary Expressions:
+**Binary Expressions**
 1. Binary Expressions
 
-Unary Expressions
+**Unary Expressions**
 1. `async` Expression
 
-Postfix Expressions
+**Postfix Expressions**
 1. Postfix Function Calls
 2. Postfix Member Access
 3. Postfix Early Return
 4. Postfix Logical Not
 
-Primary Expressions
+**Primary Expressions**
 1. Literals
 2. Object Initializations
 3. Type Expression

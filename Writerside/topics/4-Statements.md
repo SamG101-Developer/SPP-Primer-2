@@ -1,6 +1,6 @@
 # 4. Statements
 
-Statements
+**Statements**
 1. `let` Statement
 2. `ret` Statement
 3. `exit` Statement

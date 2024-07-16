@@ -1,5 +1,7 @@
 # 2. Lexical Structure
 
+**Lexical Structure**
+
 1. Unicode
 2. Lexical Translation
 3. Line Terminators, Whitespace

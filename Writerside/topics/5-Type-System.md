@@ -1,19 +1,19 @@
 # 5. Type System
 
-Types
+**Types**
 1. (Non-) Primitive Types
 2. Advanced Types
 
-Special Types
+**Special Types**
 1. Union Types
 2. Intersection Types
 3. Residual Types
 
-Typing
+**Typing**
 1. Affine Typing
 2. Flow Typing
 
-Other
+**Other**
 1. Type Shorthands
 2. Type Inference
 3. Type Aliasing
