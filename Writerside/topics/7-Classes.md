@@ -1,8 +1,5 @@
-# 1. Introduction
+# 7. Classes
 
 <primary-label ref="header-label"/>
 
 <secondary-label ref="wip"/>
-
-**Introduction**
-- [](1-1-Terms-Definitions.md)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
+<labels
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
+
+    <primary-label id="header-label" short-name="L" name="S++">
+        This is an example label
+    </primary-label>
+
+    <secondary-label id="wip" name="WIP" color="tangerine">Work in progress</secondary-label>
+    <secondary-label id="complete" name="complete" color="green">This feature is implemented</secondary-label>
+    <secondary-label id="experimental" name="Experimental" color="blue">This is an experimental feature</secondary-label>
+</labels>

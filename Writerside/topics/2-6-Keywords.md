@@ -1,5 +1,9 @@
 # 2.6. Keywords
 
+<primary-label ref="header-label"/>
+
+<secondary-label ref="complete"/>
+
 S++ uses a small keyword set of 29 keywords. The keywords are not context dependant, and can therefore not be used as
 identifiers in non-keyword contexts. This makes the language easier to learn and understand, and to make the code more
 readable.
@@ -10,32 +14,149 @@ same length, to make the code more aligned.
 
 The following table lists all the keywords in S++:
 
-|             |      |      |       |       |
-|-------------|------|------|-------|-------|
-| [mod](#mod) | cls  | sup  | fun   | use   |
-| let         | mut  | case | else  | loop  |
-| with        | skip | exit | ret   | gen   |
-| where       | is   | as   | true  | false |
-| self        | Self | and  | or    | not   |
-| on          | in   | then | async |       |
+- `mod`
+- `cls`
+- `sup`
+- `fun`
+- `use`
+- `let`
+- `mut`
+- `case`
+- `else`
+- `loop`
+- `with`
+- `skip`
+- `exit`
+- `ret`
+- `gen`
+- `where`
+- `is`
+- `as`
+- `true`
+- `false`
+- `self`
+- `Self`
+- `and`
+- `or`
+- `not`
+- `on`
+- `in`
+- `then`
+- `async`
 
-## Module Level Keywords
+{columns="4"}
 
-#### `mod`
+## Keywords
 
-The `mod` keyword defines a `.spp` file as a [module]() to be included in the [module tree]() for compilation. The name
-of the module must follow the `mod` keyword, and must reflect the directory that the file is in, up-to and including
-the `src`folder. It must be the first line in the file.
+### Module Level Keywords {collapsible="true"}
 
-The file `src/foo/bar/baz.spp` requires the definition `mod src::foo::bar::baz`. If a file is being written but isn't
-completed, commenting out the `mod` definition will exclude it from the module tree.
+`mod`
+: - Define a module to be included in the module tree for compilation.
 
-#### `cls`
+`cls`
+: - Define a class (state only: attributes).
 
-The `cls` keyword is used to define a [class](). Generic arguments can be optionally provided, and the class name must
-follow. Only [state]() can be defined in a `cls` block.
+`sup`
+: - Define a regular superimposition block (behaviour: methods, typedefs)
+: - Define an inheritance superimposition block
+: - Pass superclass instances to object initializations.
+: `on`
+    : - Superimpose a class "on" another class.
 
-Classes can only be defined at the module level. The order of class definition doesn't matter, because of
-the[multi-stage]() compilation model.
+`fun`
+: - Define a subroutine function.
+: - Define a subroutine lambda functions.
 
-#### `sup`
+`cor`
+: - Define a coroutine function.
+: - Define a coroutine lambda functions.
+
+`use`
+: - Define a type alias.
+: - Define a type reduction.
+: `as`
+    : - Alias a type as part of type aliasing.
+
+### Variable Keywords {collapsible="true"}
+
+`let`
+: - Define a variable.
+: `mut`
+    : - Mark a variable as mutable.
+
+`mut`
+: - Mark a type's borrow convention as mutable.
+: - Take a mutable borrow of a variable.
+
+### Control Flow Keywords {collapsible="true"}
+
+`case`
+: - Define a conditional branching block.
+: `then`
+    : - Define a block of code to be executed after a conditional block.
+: `else`
+    : - Define a "default" branch for if no other branches match.
+
+`loop`
+: - Define a conditional looping block.
+: - Define an iteration-/range-based looping block.
+: `in`
+    : - Define a range-based loop.
+: `else`
+    : - Define a "default" branch for a `loop` block.
+
+`with`
+: - Define a context block.
+
+`skip`
+: - Skip the current iteration of a loop.
+
+`exit`
+: - Exit the current loop.
+
+`ret`
+: - Return a value from a function.
+
+`gen`
+: - Yield a value from a coroutine.
+: `with`
+    : - Yield every element of a generator.
+
+### Type Keywords {collapsible="true"}
+
+`where`
+: - Define a block of type constraints.
+
+`is`
+: - Check if a variant is of a certain type.
+
+`true`
+: - Boolean value `true`.
+
+`false`
+: - Boolean value `false`.
+
+`self`
+: - Reference to the current instance of a class.
+
+`Self`
+: - Reference to the current type of a class.
+
+### Logical Keywords {collapsible="true"}
+
+`and`
+: - Logical `and` operator.
+
+`or`
+: - Logical `or` operator.
+
+`not`
+: - Logical `not` operator.
+
+### Other Keywords {collapsible="true"}
+
+`async`
+: - Define an asynchronous function call.
+
+`else`
+: - Define a "default" value for object initializations.

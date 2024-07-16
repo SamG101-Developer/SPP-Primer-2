@@ -1,8 +1,5 @@
-# 1. Introduction
+# 11. Memory Management
 
 <primary-label ref="header-label"/>
 
 <secondary-label ref="wip"/>
-
-**Introduction**
-- [](1-1-Terms-Definitions.md)

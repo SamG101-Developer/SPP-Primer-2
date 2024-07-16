@@ -1,8 +1,5 @@
-# 1. Introduction
+# 10. Exceptions
 
 <primary-label ref="header-label"/>
 
 <secondary-label ref="wip"/>
-
-**Introduction**
-- [](1-1-Terms-Definitions.md)
