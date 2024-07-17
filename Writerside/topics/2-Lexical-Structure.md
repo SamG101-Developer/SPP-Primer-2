@@ -2,15 +2,15 @@
 
 <primary-label ref="header-label"/>
 
-<secondary-label ref="wip"/>
+<secondary-label ref="doc-wip"/>
 
-**Lexical Structure**
+**Contents**
 
 - Unicode
 - Lexical Translation
-- Line Terminators, Whitespace
-- Comments
+- [](2-3-Whitespace.md)
+- [](2-4-Comments.md)
 - [](2-5-Identifiers.md)
 - [](2-6-Keywords.md)
-- Literals
+- [](2-7-Literals.md)
 - Operators

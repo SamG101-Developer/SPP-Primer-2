@@ -11,8 +11,12 @@
         <toc-element topic="1-1-Terms-Definitions.md"/>
     </toc-element>
     <toc-element topic="2-Lexical-Structure.md">
+        <toc-element topic="2-3-Whitespace.md"/>
+        <toc-element topic="2-4-Comments.md"/>
         <toc-element topic="2-5-Identifiers.md"/>
         <toc-element topic="2-6-Keywords.md"/>
+        <toc-element topic="2-7-Literals.md"/>
+        <toc-element topic="2-8-Tokens.md"/>
     </toc-element>
     <toc-element topic="3-Expressions.md"/>
     <toc-element topic="4-Statements.md"/>
@@ -26,4 +30,5 @@
     </toc-element>
     <toc-element topic="12-Parallelism-Concurrency.md"/>
     <toc-element topic="13-STL.md"/>
+    <toc-element topic="14-Style-Guide.md"/>
 </instance-profile>

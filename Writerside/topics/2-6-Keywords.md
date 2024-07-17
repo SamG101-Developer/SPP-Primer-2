@@ -2,7 +2,11 @@
 
 <primary-label ref="header-label"/>
 
-<secondary-label ref="complete"/>
+<secondary-label ref="doc-complete"/>
+
+<secondary-label ref="doc-subj-update"/>
+
+## Introduction to Keywords
 
 S++ uses a small keyword set of 29 keywords. The keywords are not context dependant, and can therefore not be used as
 identifiers in non-keyword contexts. This makes the language easier to learn and understand, and to make the code more
@@ -12,7 +16,7 @@ Keywords in S++ are not commonly seen in other languages, but convey the same me
 languages. For example, `loop` is used to convey a standard `while` or `for` loop. Keywords of the same group have the
 same length, to make the code more aligned.
 
-The following table lists all the keywords in S++:
+## Keywords
 
 - `mod`
 - `cls`
@@ -46,7 +50,7 @@ The following table lists all the keywords in S++:
 
 {columns="4"}
 
-## Keywords
+## Keyword Descriptions
 
 ### Module Level Keywords {collapsible="true"}
 
@@ -61,7 +65,7 @@ The following table lists all the keywords in S++:
 : - Define an inheritance superimposition block
 : - Pass superclass instances to object initializations.
 : `on`
-    : - Superimpose a class "on" another class.
+: - Superimpose a class "on" another class.
 
 `fun`
 : - Define a subroutine function.
@@ -75,14 +79,14 @@ The following table lists all the keywords in S++:
 : - Define a type alias.
 : - Define a type reduction.
 : `as`
-    : - Alias a type as part of type aliasing.
+: - Alias a type as part of type aliasing.
 
 ### Variable Keywords {collapsible="true"}
 
 `let`
 : - Define a variable.
 : `mut`
-    : - Mark a variable as mutable.
+: - Mark a variable as mutable.
 
 `mut`
 : - Mark a type's borrow convention as mutable.
@@ -93,17 +97,17 @@ The following table lists all the keywords in S++:
 `case`
 : - Define a conditional branching block.
 : `then`
-    : - Define a block of code to be executed after a conditional block.
+: - Define a block of code to be executed after a conditional block.
 : `else`
-    : - Define a "default" branch for if no other branches match.
+: - Define a "default" branch for if no other branches match.
 
 `loop`
 : - Define a conditional looping block.
 : - Define an iteration-/range-based looping block.
 : `in`
-    : - Define a range-based loop.
+: - Define a range-based loop.
 : `else`
-    : - Define a "default" branch for a `loop` block.
+: - Define a "default" branch for a `loop` block.
 
 `with`
 : - Define a context block.
@@ -120,7 +124,7 @@ The following table lists all the keywords in S++:
 `gen`
 : - Yield a value from a coroutine.
 : `with`
-    : - Yield every element of a generator.
+: - Yield every element of a generator.
 
 ### Type Keywords {collapsible="true"}
 

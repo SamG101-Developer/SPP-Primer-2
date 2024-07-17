@@ -8,7 +8,7 @@
         This is an example label
     </primary-label>
 
-    <secondary-label id="wip" name="WIP" color="tangerine">Work in progress</secondary-label>
-    <secondary-label id="complete" name="complete" color="green">This feature is implemented</secondary-label>
-    <secondary-label id="experimental" name="Experimental" color="blue">This is an experimental feature</secondary-label>
+    <secondary-label id="doc-wip" name="Doc WIP" color="tangerine">Work in progress</secondary-label>
+    <secondary-label id="doc-complete" name="Doc Complete" color="green">This is a stable feature</secondary-label>
+    <secondary-label id="doc-subj-update" name="Doc Subject to Update" color="yellow">This is a feature that is subject to change</secondary-label>
 </labels>

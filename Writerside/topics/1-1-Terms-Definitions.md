@@ -1,5 +1,11 @@
 # 1.1. Terms &amp; Definitions
 
+<primary-label ref="header-label"/>
+
+<secondary-label ref="doc-complete"/>
+
+<secondary-label ref="doc-subj-update"/>
+
 There are a number of terms that are used throughout the specification that may not be immediately clear. This section
 aims to define these terms.
 
