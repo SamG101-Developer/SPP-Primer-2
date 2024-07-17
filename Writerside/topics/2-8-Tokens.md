@@ -1,5 +1,12 @@
 # 2.8. Tokens
 
+<primary-label ref="header-label"/>
+
+<secondary-label ref="doc-wip"/>
+
+<secondary-label ref="doc-subj-update"/>
+
+
 ## Tokens
 
 - `{`
