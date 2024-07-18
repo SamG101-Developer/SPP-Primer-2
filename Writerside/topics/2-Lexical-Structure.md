@@ -13,4 +13,4 @@
 - [](2-5-Identifiers.md)
 - [](2-6-Keywords.md)
 - [](2-7-Literals.md)
-- Operators
+- [](2-8-Tokens.md)

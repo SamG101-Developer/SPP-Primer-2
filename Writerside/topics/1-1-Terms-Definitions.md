@@ -15,26 +15,34 @@ An argument is given at the call site of the target function, and is passed to t
 is the value that is passed to the function, and the parameter is the variable that the argument is assigned to. This
 also applies to generic type arguments and parameters.
 
+#### Variables & Values
+
+A variable is a named memory location that can store a value. A value is the data that is stored in the memory location.
+
 #### Owned Object
 
-An owned object is a non-borrowed value, whose lifetimes is, at present, limited to the current scope. It will have
-either been created in the current scope, or passed into the current scope as an argument or a coroutine yield. An owned
-object's lifetime can be extended by moving into an object initializer, thereby transferring ownership of the value from
-the current scope (function) to the object being initialized.
+An owned object is the value being stored in a variable. The term "owned" refers to the fact that the actual value is
+being referred, not a borrowed instance of the value. This means the owned object's owner is responsible for the value's
+lifetime, and when the owner goes out of scope, the value is deallocated. An owned object can be moved into another
+variable. If this new variable belongs to an outer frame (ie returning or yielding an owned object), then the lifetime
+of the owned object will be extended to match the new scope that the new owner variable resides in.
 
 #### Borrowed Object
 
-A borrowed object is a non-nullable pointer to an owned-object, denoted by the `&` token. An immutably borrowed object
-is also known as a "reader" and a mutably borrowed object is known as a "writer." A borrow is always valid, and can
-never outlive the lifetime of the owned object that is being borrowed. Unlike C++, the default mutability of a borrowed
-object is immutable.
+A borrowed object is a non-nullable pointer to an owned-object (a value stored in a variable). A borrowed object is
+always valid, and cannot outlive the lifetime of the owned object that is being borrowed. This is enforced by the rules
+of the memory model. A borrowed object can be either immutable or mutable, defaulting to immutable. An immutably
+borrowed object is known as a "reader" and a mutably borrowed object is known as a "writer." Taking a borrow of a borrow
+doesn't stack the borrow, ie doesn't create a `&&` type, but takes a borrow of the owned object under the original
+borrow.
 
 #### Move
 
-A move is the transfer of ownership of an object from one scope to another. This is done by passing the object as an
-assignment value, function argument, object initialization argument, or a coroutine yield. The owned object now "
-non-initialized", and is therefore no longer valid in the current scope, and the variable cannot be used until it is
-reinitialised.
+A variable "owns" a value. As such, values can be moved between variables, transferring their ownership. For
+example, `let x = y` moves the value from `y` into `x`. The variable `y` is now non-initialized. A value's ownership can
+be transferred by passing a variable as an assignment value, function argument, object initialization argument, or a
+coroutine yield. This moves the value inside the variable into the destination variable, in a different memory location.
+The original variable is now non-initialized, and cannot be used until it has been re-initialized with a new value.
 
 #### Partial-Move
 
