@@ -17,19 +17,19 @@ borrows its environment, takes a `Str` and returns a `Void` would have the signa
 
 ## `FunMov`
 
-A method with a `self` or `mut self` parameter is a `FunMov` function, as it consumes its `self` environment. This means
+A method with a `self` or `mut self` parameter is a `FunMov` function, as it consumes the `self` environment. This means
 that the object that owns this method will be consumed by the method, and non-accessible after the function has
 returned. This is useful for functions that need to take ownership of the object, such as destructors.
 
 ## `FunMut`
 
-A method with a `&mut self` parameter is a `FunMut` function, as it mutably borrows its `self` environment. This means
+A method with a `&mut self` parameter is a `FunMut` function, as it mutably borrows the `self` environment. This means
 that the object that owns this method will be mutably borrowed, and can be used again after the function has returned.
 This is useful for functions that need to modify the object that they belong to, for reasons such as updating internal
 state.
 
 ## `FunRef`
 
-A method with a `&self` parameter is a `FunRef` function, as it borrows its `self` environment. This means that the
+A method with a `&self` parameter is a `FunRef` function, as it borrows the `self` environment. This means that the
 object that owns this method will be borrowed, and can be used again after the function has returned. Free functions, ie
 functions that do not have a `self` parameter, are also `FunRef` functions.

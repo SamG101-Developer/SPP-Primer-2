@@ -22,15 +22,3 @@ the `std::Opt[T]` type, in-case the bounds check fails, or an element is not pre
 
 Accessors are defined as coroutines, so that borrows can be taken from elements within the array. Arrays themselves can
 only store owned objects, and **not** borrows.
-
-## Tuples
-
-Tuples are a fixed-size collection of elements of different types. They are first-class objects, and are used to store
-multiple values in a single object. The corresponding first-class type is `std::Tup[..Ts]`. It is a compiler-known
-class, and maps to the LLVM `struct` type.
-
-Tuple construction syntax mirrors an object instantiation, without the class name or attribute names. For example,
-instead of `Point(x=1, y=2, z=3)`, the syntax is `(1, 2, 3)`. See the section
-on [tuple literals](2-7-Literals.md#tuple-literals) for more information on tuple literals.
-
-For more detail on tuples and their special operations, see the [tuple operations]() section.

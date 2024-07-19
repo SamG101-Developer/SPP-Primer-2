@@ -4,6 +4,16 @@
 
 <secondary-label ref="doc-complete"/>
 
+## Tuples
+
+Tuples are a fixed-size collection of elements of different types. They are first-class objects, and are used to store
+multiple values in a single object. The corresponding first-class type is `std::Tup[..Ts]`. It is a compiler-known
+class, and maps to the LLVM `struct` type.
+
+Tuple construction syntax mirrors an object instantiation, without the class name or attribute names. For example,
+instead of `Point(x=1, y=2, z=3)`, the syntax is `(1, 2, 3)`. See the section
+on [tuple literals](2-7-Literals.md#tuple-literals) for more information on tuple literals.
+
 ## Binary Folding
 
 Tuples can be folded into a single value, as long as each value can be combined with the next value, with the operation
@@ -92,10 +102,6 @@ fun main() {
 }
 ```
 
-## Destructuring
-
-Tuple destructuring is covered in the [variable declaration](4-1-Variables.md#tuple-destructure) section.
-
 ## Indexing
 
 Tuples values, and types, can be indexed using the `.` or `::` operator. This is the same as an attribute access, and
@@ -120,3 +126,7 @@ use TT0 = TupleType::0
 use TT1 = TupleType::1
 use TT2 = TupleType::2
 ```
+
+## Destructuring
+
+Tuple destructuring is covered in the [variable declaration](4-1-Variables.md#tuple-destructure) section.
