@@ -26,6 +26,8 @@ also contain `_` characters as separators, to make the number more readable.
 Decimal float literals must always be prefixed by an integer part, which can be `0`. This means that `.123` is not a
 valid float literal, but `0.123` is. Both the integer and float part can use `_` separators.
 
+### Numeric Postfix Literals
+
 All numeric literals can also have a numeric postfix type. This allows the type of the number to be explicitly defined.
 If there is no postfix, either the `std::BigInt`, or `std::BigDec` is used. These are the default types for integers and
 floats, respectively.

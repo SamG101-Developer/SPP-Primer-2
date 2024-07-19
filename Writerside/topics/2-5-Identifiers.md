@@ -76,20 +76,3 @@ identifiers.
 | `__setattr__`/`__set__`                    | Superimpose `std::Rx`, override `attr_set(self, name: std::Str, value: std::Any) -> std::Void` |
 | `__delattr__`/`__delete__`                 | Superimpose `std::Rx`, override `attr_del(self, name: std::Str) -> std::Void`                  |
 | `__dir__`                                  | Has no use in S++                                                                              |
-
-## Identifier Scope
-
-S++ uses strict block scoping to contain identifiers and prevent the leaking of variables. This means that variables
-declared in a block are only accessible within that block, and not outside of it. This is to provide a clear and
-predictable scope for variables, and to prevent accidental variable shadowing.
-
-An identifier from an outer block can be accessed from an inner block, but an identifier from an inner block cannot be
-accessed from an outer block. See the section on [shadowing]() for more information on defining variables with the same
-name in an inner block.
-
-The lifetime of a variable is the lifetime of the block it was defined in. The lifetime of a variable can be extended by
-returning it out of a function, either as the variable itself, or by first moving it into the attribute of an object,
-and returning that object. Either way, the variable must be moved out of the function to extend its lifetime. This works
-because the variable is now part of the outer frame, and as such, its lifetime is extended to the lifetime of the outer
-frame.
-
