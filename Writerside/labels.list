@@ -11,4 +11,7 @@
     <secondary-label id="doc-wip" name="Doc WIP" color="tangerine">Work in progress</secondary-label>
     <secondary-label id="doc-complete" name="Doc Complete" color="green">This is a stable feature</secondary-label>
     <secondary-label id="doc-subj-update" name="Doc Subject to Update" color="yellow">This is a feature that is subject to change</secondary-label>
+
+    <secondary-label id="feature-frozen" name="Feature Frozen" color="blue">This feature is complete and frozen</secondary-label>
+    <secondary-label id="feature-subj-change" name="Feature Subject to Change" color="purple">This feature is subject to change</secondary-label>
 </labels>

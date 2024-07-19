@@ -10,7 +10,7 @@
 
 In S++, all functions, methods and closures are first-class objects. They are either `FunMov`, `FunMut` or `FunRef`
 types. Each type represents the way in which the function captures the environment - by moving in into the function,
-borrowing it mutably, or borrowing it immutably.
+borrowing it mutably, or borrowing it immutably. There is no concept of a "function pointer".
 
 Each function type contains generic arguments pertaining to the function's signature. For example, a function immutably
 borrows its environment, takes a `Str` and returns a `Void` would have the signature `FunRef[Void, (Str)]`.

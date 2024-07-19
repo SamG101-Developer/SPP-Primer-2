@@ -4,31 +4,31 @@
 
 <secondary-label ref="doc-wip"/>
 
+## Class Definition
+
+<secondary-label ref="feature-frozen"/>
+
+- **Class keyword**: The `cls` keyword is used to define a class. This is the only way to introduce a class into the
+  symbol table - there is no separate struct and class system like in C++.
+
+- **Class identifier**: The name of the class, following the [type-identifier](2-5-Identifiers.md#naming-rules) rules.
+  Multiple classes within the same namespace cannot share the same name - this will cause a compile time error to be
+  thrown.
+
+- **Generic type parameters**: A group of generic parameters can optionally be defined following the identifier, in
+  square brackets. Some of these generics may be "inferable" from attribute types, or other generic constraints. See the
+  generics section for more information about the order they must be defined in.
+
+- **Where block**: A `where` block can optionally be defined following the generic type parameters, which can be used to
+  define constraints on the generic type parameters. This block is not required, but can be useful for defining
+  longer sets of more complex constraints that would be difficult to read inline.
+
+- **Class body**: The class body is defined following the class identifier or `where` block, and is enclosed in curly
+  braces. The body can contain any number of attributes, but **not** methods or typedefs, which are behavioural
+  constructs, not state constructs.
+
 ## Class System
 
 S++ has a unique class system, inspired by Rust, but simplified and more flexible. Classes have different blocks for
 state and for behaviour. A class's state is defined by a `cls` block, which can provide an identifier, generics and
-attributes. A `sup` block defined the behaviour of a class - its methods, type aliases, and inheritance.
-
-## Defining a Class
-
-Classes are defined by the `cls` keyword, followed by the class name. The class name must be a valid type identifier.
-Generic parameters and constraints can follow, and the class body is enclosed in curly braces. The class body only
-defined the state of the class, and can therefore only contain attribute identifiers and type annotations.
-
-An example of a class definition is as follows:
-
-```
-cls Vec3D[T: Copy] {
-    x: T
-    y: T
-    z: T
-}
-```
-
-## Forward Declarations
-
-Forward declarations are not required in S++, and therefore have no syntax. This is because the compiler performs
-multi-state semantic analysis, and resolves all types before they are used, by filling the symbol tables with symbols
-generated from module-level blocks. This means that a class can be used before it is defined, and the compiler will
-resolve the class correctly. Defining a type more than once will result in a compiler error.
+attributes. A `sup` block defines the behaviour of a class - its methods, type aliases, and inheritance.

@@ -65,7 +65,7 @@ same length, to make the code more aligned.
 : - Define an inheritance superimposition block
 : - Pass superclass instances to object initializations.
 : `on`
-: - Superimpose a class "on" another class.
+    : - Superimpose a class "on" another class.
 
 `fun`
 : - Define a subroutine function.
@@ -79,14 +79,14 @@ same length, to make the code more aligned.
 : - Define a type alias.
 : - Define a type reduction.
 : `as`
-: - Alias a type as part of type aliasing.
+    : - Alias a type as part of type aliasing.
 
 ### Variable Keywords {collapsible="true"}
 
 `let`
 : - Define a variable.
 : `mut`
-: - Mark a variable as mutable.
+    : - Mark a variable as mutable.
 
 `mut`
 : - Mark a type's borrow convention as mutable.
@@ -97,17 +97,17 @@ same length, to make the code more aligned.
 `case`
 : - Define a conditional branching block.
 : `then`
-: - Define a block of code to be executed after a conditional block.
+    : - Define a block of code to be executed after a conditional block.
 : `else`
-: - Define a "default" branch for if no other branches match.
+    : - Define a "default" branch for if no other branches match.
 
 `loop`
 : - Define a conditional looping block.
 : - Define an iteration-/range-based looping block.
 : `in`
-: - Define a range-based loop.
+    : - Define a range-based loop.
 : `else`
-: - Define a "default" branch for a `loop` block.
+    : - Define a "default" branch for a `loop` block.
 
 `with`
 : - Define a context block.
@@ -124,7 +124,7 @@ same length, to make the code more aligned.
 `gen`
 : - Yield a value from a coroutine.
 : `with`
-: - Yield every element of a generator.
+    : - Yield every element of a generator.
 
 ### Type Keywords {collapsible="true"}
 
