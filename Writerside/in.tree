@@ -41,10 +41,17 @@
     </toc-element>
     <toc-element topic="8-Functions.md">
         <toc-element topic="8-1-Function-Definition.md"/>
+        <toc-element topic="8-2-Function-AST-Manipulation.md"/>
+        <toc-element topic="8-5-Asynchronous-Functions.md"/>
     </toc-element>
     <toc-element topic="9-Generics.md"/>
     <toc-element topic="10-Exceptions.md"/>
     <toc-element topic="11-Memory-Management.md">
+        <toc-element topic="11-1-Memory-Model.md"/>
+        <toc-element topic="11-2-Ownership-Tracking.md"/>
+        <toc-element topic="11-3-Second-Class-Borrows.md"/>
+        <toc-element topic="11-4-Law-of-Exclusivity.md"/>
+        <toc-element topic="11-5-Memory-Error-Mitigations.md"/>
     </toc-element>
     <toc-element topic="12-Parallelism-Concurrency.md"/>
     <toc-element topic="13-STL.md"/>

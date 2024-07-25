@@ -2,7 +2,7 @@
 
 <primary-label ref="header-label"/>
 
-<secondary-label ref="wip"/>
+<secondary-label ref="doc-wip"/>
 
 **Contents**
 

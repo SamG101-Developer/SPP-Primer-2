@@ -6,10 +6,10 @@
 
 
 **Contents**
-- Function Definition
-- AST Reduction
+- [](8-1-Function-Definition.md)
+- [](8-2-Function-AST-Manipulation.md)
 - Overloading
 - Recursion
-- Asynchronous Functions
+- [](8-5-Asynchronous-Functions.md)
 - Partial Functions
 - Closure Functions

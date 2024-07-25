@@ -12,6 +12,11 @@
     <secondary-label id="doc-complete" name="Doc Complete" color="green">This is a stable feature</secondary-label>
     <secondary-label id="doc-subj-update" name="Doc Subject to Update" color="yellow">This is a feature that is subject to change</secondary-label>
 
+    <secondary-label id="doc-sect-wip" name="Section WIP" color="tangerine">This section is a work in progress</secondary-label>
+    <secondary-label id="doc-sect-complete" name="Section Complete" color="green">This section is complete</secondary-label>
+    <secondary-label id="doc-sect-subj-update" name="Section Subject to Update" color="yellow">This section is subject to change</secondary-label>
+
     <secondary-label id="feature-frozen" name="Feature Frozen" color="blue">This feature is complete and frozen</secondary-label>
+    <secondary-label id="feature-not-impl-yet" name="Feature Not Implemented Yet" color="red">This feature is not yet implemented</secondary-label>
     <secondary-label id="feature-subj-change" name="Feature Subject to Change" color="purple">This feature is subject to change</secondary-label>
 </labels>

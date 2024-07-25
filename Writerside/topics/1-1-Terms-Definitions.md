@@ -48,9 +48,9 @@ The original variable is now non-initialized, and cannot be used until it has be
 
 A partial-move is the transfer of ownership of part of an object, such as moving the value of an attribute off of an
 object. This is done in the same way as a standard move, but as part of a larger object. The object whose attribute has
-been moved from is now "partially-moved", and therefore is "partially-initialised".
+been moved from is now "partially-moved", and therefore is "partially-initialized".
 
-#### Fully-Initialised Object
+#### Fully-Initialized Object
 
 An object is fully initialized when all of its fields have been assigned a value. All borrowed objects are fully
 initialized by default, as moving out of a borrowed context is prohibited, and taking a borrow of a partially
