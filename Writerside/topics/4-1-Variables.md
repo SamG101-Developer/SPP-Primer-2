@@ -14,9 +14,9 @@ noise.
 
 ## Non-initialized Variables
 
-A non-initialized variable can be defined, but cannot be used until it has been assigned a value. The [memory model]()
-uses [ownership tracking]() to monitor the owner of the variable, and will not allow the variable to be used until it
-is initialized.
+A non-initialized variable can be defined, but cannot be used until it has been assigned a value.
+The [memory model](11-1-Memory-Model.md) uses [ownership tracking](11-2-Ownership-Tracking.md) to monitor the owner of
+the variable, and will not allow the variable to be used until it is initialized.
 
 If a variable is non-initialized, and only initialized in some branches of a conditional block, then a "potentially
 uninitialized" error will be thrown - a variable must either be initialized or non-initialized at the end of every
@@ -123,9 +123,9 @@ Taken from Rust, interior mutability is utilized to simplify the mutability mode
 mutability of an attribute is dictated by the outermost object containing this attribute. This means that for an
 attribute's attribute to be changed, the outermost object must be marked `mut`.
 
-> The mutability of a value and the mutability of a borrow are 2 different things. See the section on [borrowing]() for
-> more information.
-{style="warning"}
+> The mutability of a value and the mutability of a borrow are 2 different things. See the section
+> on [borrowing](11-3-Second-Class-Borrows.md) for more information.
+> {style="warning"}
 
 ## Variable Scope
 

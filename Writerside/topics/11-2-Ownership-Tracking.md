@@ -107,10 +107,12 @@ cls Point {
 
 <secondary-label ref="doc-sect-complete"/>
 
-1. The default semantic is to move values, as this is the most efficient way to handle memory. This feature was inspired
-   by Rust.
-2. Copying a type is enabled by superimposing the `Copy` type on the type. This was also inspired by Rust, as are the
+1. The **default semantic is to move values**, as this is the most efficient way to handle memory. This feature was
+   inspired by Rust.
+2. **Copying a type is enabled by superimposing the `Copy` type** on the type. This was also inspired by Rust, as are
+   the
    entire operations suit - superimpose special compiler-known classes over a type to add or override functionality.
-3. Partial moves are allowed, as they are a useful feature in a method that consumes the `self` object, or during
+3. **Partial moves are allowed**, as they are a useful feature in a method that consumes the `self` object, or during
    destructure operations.
-4. Partial moves cannot be taken from borrowed object, and borrows cannot be taken from partially-initialized objects.
+4. **Partial moves cannot be taken from borrowed object**, and borrows cannot be taken from partially-initialized
+   objects.
