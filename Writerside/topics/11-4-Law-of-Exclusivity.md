@@ -2,7 +2,7 @@
 
 <primary-label ref="header-label"/>
 
-<secondary-label ref="doc-wip"/>
+<secondary-label ref="doc-complete"/>
 
 ## The Law of Exclusivity
 

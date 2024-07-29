@@ -19,4 +19,6 @@
     <secondary-label id="feature-frozen" name="Feature Frozen" color="blue">This feature is complete and frozen</secondary-label>
     <secondary-label id="feature-not-impl-yet" name="Feature Not Implemented Yet" color="red">This feature is not yet implemented</secondary-label>
     <secondary-label id="feature-subj-change" name="Feature Subject to Change" color="purple">This feature is subject to change</secondary-label>
+
+    <secondary-label id="examples-todo" name="Examples Todo" color="yellow">More examples will be included</secondary-label>
 </labels>

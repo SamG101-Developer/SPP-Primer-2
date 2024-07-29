@@ -4,6 +4,11 @@
 
 <secondary-label ref="doc-wip"/>
 
+
+## Memory Error Mitigations
+
+<secondary-label ref="doc-sect-wip"/>
+
 | Memory Error      | Mitigation           |
 |-------------------|----------------------|
 | Use-After-Free    | Ownership Tracking   |
@@ -11,4 +16,3 @@
 | Uninitialized Use | Ownership Tracking   |
 | Dangling Pointers | Second Class Borrows |
 | Memory Leaks      | Ownership Tracking   |
-
