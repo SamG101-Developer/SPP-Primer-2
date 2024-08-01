@@ -2,7 +2,22 @@
 
 <primary-label ref="header-label"/>
 
-<secondary-label ref="wip"/>
+<secondary-label ref="doc-wip"/>
+
+**Primary Expressions**
+
+1. Literals
+2. Object Initializations
+3. Lambda Expressions
+4. Parenthesized Expressions
+5. Identifiers
+6. `case` Expressions
+7. `loop` Expressions
+8. `with` Expressions
+9. `self` Expressions
+10. `gen` Expressions
+11. Anonymous Scope
+12. Token Expression
 
 **Binary Expressions**
 
@@ -18,19 +33,3 @@
 2. Postfix Member Access
 3. Postfix Early Return
 4. Postfix Logical Not
-
-**Primary Expressions**
-
-1. Literals
-2. Object Initializations
-3. Type Expression
-4. Lambda Expressions
-5. Parenthesized Expressions
-6. Identifiers
-7. `case` Expressions
-8. `loop` Expressions
-9. `with` Expressions
-10. `self` Expressions
-11. `gen` Expressions
-12. Anonymous Scope
-13. Token Expression
