@@ -22,9 +22,9 @@ To ensure that memory errors are always mitigated, 3 core techniques are used:
 2. [Second Class Borrows](11-3-Second-Class-Borrows.md) - this is a way to borrow an object without moving it. This is
    useful for when a function needs to borrow an object, but the object must be used again after the function call.
    Borrows can only be taken at certain places, removing the need for lifetime analysis.
-3. [The Law of Exclusivity](11-4-Law-of-Exclusivity.md) - this is a rule that states that only one mutable borrow can
-   exist at a time. This is enforced by the compiler, and if a mutable borrow is attempted while another borrow exists,
-   the compiler will throw an error.
+3. [The Law of Exclusivity](11-4-Law-of-Exclusivity.md) - this is a rule that states that only one mutable borrow xor
+   any number of immutable borrows can exist at a time. This is enforced by the compiler, and if a mutable borrow is
+   attempted while another borrow exists, the compiler will throw a compile time error.
 
 The combination of these memory management techniques enforces that memory errors are always mitigated, and that no
 additional syntax is required for any sort of lifetime analysis.

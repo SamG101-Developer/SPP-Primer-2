@@ -49,3 +49,18 @@ Borrows can be stacked, by using the `&` operator on a variable that is already 
 to 1-layer borrows. This means that a borrow of a borrow can be taken, increasing the number of active borrows, but both
 are direct borrows of the corresponding owned object. That is, both borrows are `&T` types, not `&T` and `&&T` types.
 This differs from `C++`, where stacking pointers for example can create `T**` types.
+
+## Mutable Borrows vs Mutable Variables
+
+The mutability of a variable and its borrow can be different. The difference revolves around the mutability of the
+symbol, ie can the value inside it be replaced, and the mutability of the value itself, ie can the existing value be
+mutated:
+
+| Borrow? | Example                        | Value Mutability           | Borrow Mutability      |
+|---------|--------------------------------|----------------------------|------------------------|
+| `N`     | `fun f(x: T) -> Void`          | `x` can not be re-assigned | `x` can not be mutated |
+| `N`     | `fun f(mut x: T) -> Void`      | `x` can be re-assigned     | `x` can be mutated     |
+| `Y`     | `fun f(x: &T) -> Void`         | `x` can not be re-assigned | `x` can not be mutated |
+| `Y`     | `fun f(mut x: &T) -> Void`     | `x` can be re-assigned     | `x` can not be mutated |
+| `Y`     | `fun f(x: &mut T) -> Void`     | `x` can not be re-assigned | `x` can be mutated     |
+| `Y`     | `fun f(mut x: &mut T) -> Void` | `x` can be re-assigned     | `x` can be mutated     |

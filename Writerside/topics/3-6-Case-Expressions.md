@@ -35,7 +35,8 @@ else { "hello stranger" }
 **Different Condition Operators**
 
 :
-All comparison operators, except for the `<=>` operator, can be used on branches. This includes: `==`, `!=`, `<`, `>`, `<=`,
+All comparison operators, except for the `<=>` operator, can be used on branches. This
+includes: `==`, `!=`, `<`, `>`, `<=`,
 `>=` and `is`. The `is` operator is used for pattern matching, and the `==` operator is used for regular comparisons.
 
 :
@@ -59,8 +60,9 @@ else { "hello stranger" }
 ```
 
 :
-> All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows regular object destructuring rules.
-{style="warning"}
+> All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows
+> regular object destructuring rules.
+> {style="warning"}
 
 **Pattern Matching (Tuple Destructure)**
 
@@ -74,7 +76,7 @@ else { "tuple is something else" }
 
 :
 > The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
-{style="warning"}
+> {style="warning"}
 
 **Binding (Object Destructure)**
 
@@ -88,11 +90,12 @@ else { "hello stranger" }
 
 :
 > Both `name` and `age` are brought into their respective blocks, because both variable names appear.
-{style="note"}
+> {style="note"}
 
 :
-> The only variable names that can be used are the attribute names, because the class is being destructured. This follows regular object destructuring rules.
-{style="warning"}
+> The only variable names that can be used are the attribute names, because the class is being destructured. This
+> follows regular object destructuring rules.
+> {style="warning"}
 
 **Binding (Tuple Destructure)**
 
@@ -105,8 +108,9 @@ else { "tuple is something else" }
 ```
 
 :
-> Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring rules.
-{style="note"}
+> Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring
+> rules.
+> {style="note"}
 
 **Multiple Patterns per Branch**
 
@@ -119,8 +123,9 @@ else { "hello stranger" }
 ```
 
 :
-> Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions for more information.
-{style="warning"}
+> Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions
+> for more information.
+> {style="warning"}
 
 
 **Pattern Guards**
@@ -132,7 +137,6 @@ else { "hello stranger" }
 ```
 case person then == john { "hello john" } else { "hello stranger" }
 ```
-
 
 ## Design Decisions
 
