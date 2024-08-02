@@ -62,7 +62,7 @@ else { "hello stranger" }
 :
 > All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows
 > regular object destructuring rules.
-> {style="warning"}
+> {style="note"}
 
 **Pattern Matching (Tuple Destructure)**
 
@@ -76,7 +76,21 @@ else { "tuple is something else" }
 
 :
 > The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
-> {style="warning"}
+> {style="note"}
+
+**Pattern Matching (Type Destructure)**
+
+:
+```
+case value then
+    is Str { "value is Str" }
+    is U32 { "value is U32" }
+else { "value is something else" }
+```
+
+:
+> The type in each pattern must be one of the types forming the union type of `value`.
+{style="note"}
 
 **Binding (Object Destructure)**
 
@@ -126,7 +140,6 @@ else { "hello stranger" }
 > Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions
 > for more information.
 > {style="warning"}
-
 
 **Pattern Guards**
 

@@ -57,3 +57,12 @@ sup MyType on OtherType {
     fun method(&self) -> Void { }  # Override method
 }
 ```
+
+This allows for proper inheritance, but in an organized way that separates methods from each super-class into their
+own `sup` blocks. This solves the coupling issue; if a super-class is changed, then specific `sup` blocks that
+superimpose that type on other classes can be discovered and edited easily.
+
+This is because, to override a method on a class, the super class, no matter how deep in the types tree it is, must be
+superimposed and the method overridden. For example, if `Copy -> A -> B -> C` and `C` wants to alter the `Copy::copy`
+method, then the `Copy` type must be superimposed over `C` again, with `fun copy` overridden. This allows a loser
+coupling between classes, and a more organized way to manage inheritance.

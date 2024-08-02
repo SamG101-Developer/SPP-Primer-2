@@ -24,6 +24,13 @@ let x = async function_name()
 
 {style="note"}
 
+### Return Value Wrapping
+
+Any function called with the `async` modifier, will immediately return a `Fut[T]` type, where `T` is the original return
+type of the function. `let x = async function_name()` will return a `Fut[T]` type, where the internal value will resolve
+in the background. There is an `await` method that can be called on the `Fut[T]` type to block the current thread until
+the value is resolved, but alternatively, `function_name` could have just been called synchronously.
+
 ## Borrowed Parameters in the Asynchronous Context
 
 <secondary-label ref="feature-subj-change"/>

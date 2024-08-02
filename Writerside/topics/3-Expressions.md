@@ -11,7 +11,7 @@
 3. Lambda Expressions
 4. Parenthesized Expressions
 5. Identifiers
-6. `case` Expressions
+6. [](3-6-Case-Expressions.md)
 7. `loop` Expressions
 8. `with` Expressions
 9. `self` Expressions
