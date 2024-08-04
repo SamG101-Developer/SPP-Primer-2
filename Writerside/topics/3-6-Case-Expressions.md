@@ -147,6 +147,7 @@ else { "hello stranger" }
 
 **Ternary Operators**
 
+:
 ```
 case person then == john { "hello john" } else { "hello stranger" }
 ```

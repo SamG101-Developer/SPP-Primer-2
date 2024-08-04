@@ -12,8 +12,8 @@
 4. Parenthesized Expressions
 5. Identifiers
 6. [](3-6-Case-Expressions.md)
-7. `loop` Expressions
-8. `with` Expressions
+7. [](3-7-Loop-Expressions.md)
+8. [](3-8-With-Expressions.md)
 9. `self` Expressions
 10. `gen` Expressions
 11. Anonymous Scope
