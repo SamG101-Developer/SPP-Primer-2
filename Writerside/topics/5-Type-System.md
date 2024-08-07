@@ -4,6 +4,11 @@
 
 <secondary-label ref="doc-wip"/>
 
+S++ has an advanced type system, using a strong-static type model. Generic, variadic, residual, function, tuple and
+array types are supported, as well as union and intersection types. Flow typing can be used with union types for more
+precise type checking. Type shorthands and type inference are also supported, and order of type declarations is not
+important.
+
 > [Generics](9-Generics.md) have their own section {style="note"}
 
 **Contents**
