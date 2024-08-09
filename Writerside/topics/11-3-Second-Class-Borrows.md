@@ -1,12 +1,12 @@
-# 11.3. Second Class Borrows
+# 11.3. Second-Class Borrows
 
 <primary-label ref="header-label"/>
 
 <secondary-label ref="doc-complete"/>
 
-## Second Class Borrows
+## Second-Class Borrows
 
-S++ uses second class borrows. These are identical in functionality to Rust's borrows, but are not first class types.
+S++ uses second-class borrows. These are identical in functionality to Rust's borrows, but are not first-class types.
 This means that the borrow status isn't stored with the type, but with the variable's symbol directly. There are a lot
 of restrictions as to where a borrow can be taken. This eliminates the need for lifetime annotations, as the borrow
 checker can infer the lifetime of a borrow from the code itself, by scoping rules.
@@ -38,7 +38,7 @@ and `iter_mut` method both yield borrows with the `GenRef[T]` and `GenMut[T]` ty
 
 ## Lifetime Analysis
 
-The use of second class borrows means that lifetime analysis becomes trivial. All function call site borrows move into
+The use of second-class borrows means that lifetime analysis becomes trivial. All function call site borrows move into
 an inner frame, meaning that they can never outlive their owned object. Yielding borrows can never outlive their owned
 objects, because control cannot be returned to the coroutine (where the owned object exists), until the coroutine is
 resumed and the borrow is therefore released.

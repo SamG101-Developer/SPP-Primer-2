@@ -14,5 +14,5 @@
 | Use-After-Free    | Ownership Tracking   |
 | Double-Free       | Ownership Tracking   |
 | Uninitialized Use | Ownership Tracking   |
-| Dangling Pointers | Second Class Borrows |
+| Dangling Pointers | Second-Class Borrows |
 | Memory Leaks      | Ownership Tracking   |

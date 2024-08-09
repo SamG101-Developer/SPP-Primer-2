@@ -32,7 +32,7 @@ expressions within a coroutine must use the same convention.
 <secondary-label ref="examples-todo"/>
 
 The `gen` expression is used to yield values out of a coroutine. Due
-to [second class borrows](11-3-Second-Class-Borrows.md), borrows can be yielded out of a coroutine. The syntax is to
+to [second-class borrows](11-3-Second-Class-Borrows.md), borrows can be yielded out of a coroutine. The syntax is to
 just add the convention between the `gen` keyword and the value to be yielded: `gen &value`. The type of the object
 being yielded must match the `Gen` generic parameters corresponding generic argument. Matching borrows against the
 coroutine's full return type is a strict requirement, as described in the section above.

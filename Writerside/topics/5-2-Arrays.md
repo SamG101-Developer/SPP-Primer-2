@@ -8,7 +8,7 @@
 
 ## Arrays
 
-S++ has a `Arr[T]` type, which represents an array as a first class object. It is a fixed-size collection of elements of
+S++ has a `Arr[T]` type, which represents an array as a first-class object. It is a fixed-size collection of elements of
 the same type. Unlike C++ and Rust's primitive array types, S++'s arrays don't have any different treatment or syntax.
 This maintains the strict orthogonality and readability of the language.
 

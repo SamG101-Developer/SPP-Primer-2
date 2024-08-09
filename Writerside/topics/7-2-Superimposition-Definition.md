@@ -66,3 +66,5 @@ This is because, to override a method on a class, the super class, no matter how
 superimposed and the method overridden. For example, if `Copy -> A -> B -> C` and `C` wants to alter the `Copy::copy`
 method, then the `Copy` type must be superimposed over `C` again, with `fun copy` overridden. This allows a loser
 coupling between classes, and a more organized way to manage inheritance.
+
+The [methods]() and [inheritance]() sections provide more detail on how superimposition can be used.

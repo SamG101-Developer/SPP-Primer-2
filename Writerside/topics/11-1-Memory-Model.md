@@ -19,7 +19,7 @@ To ensure that memory errors are always mitigated, 3 core techniques are used:
 1. [Ownership Tracking](11-2-Ownership-Tracking.md) - this tracks the ownership of objects, and at any line of the
    program, the compiler can know if an object is holding an initialized object, or contains no object. In the case no
    object is contained, the symbol is unusable except for assignment (re-allocation).
-2. [Second Class Borrows](11-3-Second-Class-Borrows.md) - this is a way to borrow an object without moving it. This is
+2. [Second-Class Borrows](11-3-Second-Class-Borrows.md) - this is a way to borrow an object without moving it. This is
    useful for when a function needs to borrow an object, but the object must be used again after the function call.
    Borrows can only be taken at certain places, removing the need for lifetime analysis.
 3. [The Law of Exclusivity](11-4-Law-of-Exclusivity.md) - this is a rule that states that only one mutable borrow xor
@@ -36,7 +36,7 @@ additional syntax is required for any sort of lifetime analysis.
    function signature to know whether borrows were being created or not. Further to this, convention based overloading
    wouldn't be possible.
 
-2. The use of **second class borrows**. Using [second class borrows](11-3-Second-Class-Borrows.md) means that any form
+2. The use of **second-class borrows**. Using [second class borrows](11-3-Second-Class-Borrows.md) means that any form
    of lifetime analysis isn't required. This is because when a borrow is taken at a function call site (in a synchronous
    context), the borrow is guaranteed to be in a inner frame, and therefore automatically have a shorter lifetime than
    the owned object it's borrowing from.
