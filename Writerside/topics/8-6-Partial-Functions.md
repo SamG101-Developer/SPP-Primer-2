@@ -49,3 +49,8 @@ fun main() -> Void {
 
 **TODO**
 
+## Overloads
+
+If the function being partially applied has overloads, the compiler will attempt to match the overload based on the
+number of arguments and placeholders provided. This may lead to ambiguous calls if the number of arguments and
+placeholders is not enough to uniquely identify the overload.
