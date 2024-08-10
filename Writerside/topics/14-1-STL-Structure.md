@@ -6,12 +6,11 @@
 
 ## Layered Structure
 
-The STL is split into 5 layers:
+The STL is split into 4 layers:
 1. Core Layer
 2. Platform Abstraction Layer
 3. Foundation Layer
 4. Extended Layer
-5. Utilities Layer
 
 ### Core Layer
 
@@ -77,4 +76,14 @@ core layer. The foundation layer includes:
 - **Big Number & Decimal**: The `BigInt` and `BigDec` classes are provided in the foundation layer. These classes are
   used for arbitrary precision arithmetic, and are only limited by the available memory. A comprehensive math library,
   following IEEE 754, is provided for number-related classes, using constrained generics to re-use code.
+
+### Extended Layer
+
+The extended layer provides more advanced functionality, building on the foundation layer. This includes things such as
+file systems, networking with TCP/UDP/HTTP, and reflection. These are libraries that are not required for the core
+functionality of the STL, but are useful for more advanced applications.
+
+There are a number of libraries in the extended layer, under `std::libs::httplib` for example, so
+that `use std::libs::httplib` can be used to do `httplib::get` for example. This allows the libraries to be used in a
+modular way, with clear imports to show it belongs to the STL.
 

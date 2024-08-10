@@ -8,8 +8,8 @@
 **Contents**
 - [](8-1-Function-Definition.md)
 - [](8-2-Function-AST-Manipulation.md)
-- Overloading
-- Recursion
+- [](8-3-Function-Overloading.md)
+- [](8-4-Function-Recursion.md)
 - [](8-5-Asynchronous-Functions.md)
 - Partial Functions
 - Closure Functions

@@ -15,13 +15,14 @@ be set, or moved off of, a fully or partially initialized object, they cannot be
 object, the same as in Rust.
 
 The initialization state of a variable is tracked at the symbol level, and during semantic analysis, any violations of
-the ownership tracking rules will result in a compile time error.
+the ownership tracking rules will result in a compile time error. [Move-default semantics](#moving-vs-copying) are used,
+meaning that a value is moved when assigned to a variable, passed as a function argument, or returned from a function.
 
 **Example**
 
 : In the following example, the variable `x` is declared as initialized with the value `"hello"`. The value inside `x`
 is then moved into the variable `y` on declaration. The variable `x` is now non-initialized, and cannot be used until it
-is re-assigned a value (would need to be declared as `mut`).
+is re-assigned a value (requiring it to be declared as `mut`).
 
 :
 ```

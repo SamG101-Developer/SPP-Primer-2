@@ -46,8 +46,12 @@
     </toc-element>
     <toc-element topic="8-Functions.md">
         <toc-element topic="8-1-Function-Definition.md"/>
-        <toc-element topic="8-2-Function-AST-Manipulation.md"/>
+        <toc-element topic="8-2-Function-AST-Manipulation.md">
+        </toc-element>
+        <toc-element topic="8-3-Function-Overloading.md"/>
+        <toc-element topic="8-4-Function-Recursion.md"/>
         <toc-element topic="8-5-Asynchronous-Functions.md"/>
+        <toc-element topic="8-6-Partial-Functions.md"/>
     </toc-element>
     <toc-element topic="9-Generics.md"/>
     <toc-element topic="10-Exceptions.md">
