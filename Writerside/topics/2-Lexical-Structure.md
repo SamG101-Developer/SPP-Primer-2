@@ -8,7 +8,7 @@
 
 - Unicode
 - Lexical Translation
-- [](2-3-Whitespace.md)
+- [](2-3-Whitespace-Line-Termination.md)
 - [](2-4-Comments.md)
 - [](2-5-Identifiers.md)
 - [](2-6-Keywords.md)

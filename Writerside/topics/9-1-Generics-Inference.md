@@ -81,9 +81,15 @@ fun func[T](a: T, b: T) -> Void { }
 ```
 
 :
+```
+func(1, 2)
+func("hello", "world")
+```
+
+:
 This example shows the generic type `T` being defined for the function `func`. It can be inferred from the parameters,
 because both `a` and `b` are type `T`. If neither parameter was type `T`, the generic would have to be explicitly
-defined. This function cal be called as `func(1, 2)` or `func("hello", "world")`.
+defined. In the 2 examples, `T` is inferred as `BigNum` and then `Str`.
 
 **Non-Inferable Generics**
 
@@ -93,8 +99,12 @@ fun func[T](a: Str, b: Str) -> T { }
 ```
 
 :
-This example shows a non-inferable function generic. This must be called as `func[Str]("hello", "world")`, to pass `T`
-a generic type argument.
+```
+func[Str]("hello", "world")
+```
+
+:
+This example shows a non-inferable function generic, and so it must be passed as an explicit generic type argument.
 
 ### Class Example
 
@@ -106,7 +116,10 @@ cls Vector[T] {
     x: T
     y: T
 }
+```
 
+:
+```
 let v = Vector(x=1, y=2)
 ```
 

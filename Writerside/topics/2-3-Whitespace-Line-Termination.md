@@ -1,4 +1,4 @@
-# 2.3. Whitespace
+# 2.3. Whitespace &amp; Line Termination
 
 <primary-label ref="header-label"/>
 
@@ -15,3 +15,8 @@ Rust and C++. This means that S++ is a **whitespace-insensitive language**.
 
 Whilst whitespace is ignored by the parser, it is still important to use whitespace to make code more readable. See
 the [style guide]() for more information recommendations on whitespace usage.
+
+## Line Termination
+
+S++ moves away from the C-family of languages that use the `;` token to terminate lines. Instead, the `\n` newline
+character is used, to provide a more readable and simpler syntax.
