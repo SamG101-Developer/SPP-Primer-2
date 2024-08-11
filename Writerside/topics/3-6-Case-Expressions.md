@@ -53,7 +53,6 @@ case age then
     <  60 { "adult" }
 else { "senior" }
 ```
-
 </def>
 
 <def title="Pattern Matching (Object Destructure)">
@@ -100,8 +99,8 @@ else { "value is something else" }
 
 ```
 case person then
-    is Person(name="john", age, ..) { "hello john, you are ${age} years old" }
-    is Person(name="jane", age, ..) { "hello jane, you are ${age} years old" }
+    is Person(name="john", age, ..) { "hello john, you are ${age}" }
+    is Person(name="jane", age, ..) { "hello jane, you are ${age}" }
 else { "hello stranger" }
 ```
 
@@ -113,7 +112,7 @@ else { "hello stranger" }
 > {style="warning"}
 </def>
 
-<def>
+<def title="Binding (Tuple Destructure)">
 
 ```
 case tuple then
