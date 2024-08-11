@@ -17,29 +17,27 @@ sometimes use either, if an entire literal is provided with no bindings.
 
 ### Examples
 
-**Basic Usage Example**
+<deflist>
+<def title="Basic Usage Example">
 
-:
 The basic example shows the condition `person` being compared against the existing objects `john` and `jane`. If the
 condition matches either of the objects, the corresponding block is executed. If the condition doesn't match any of the
 objects, the `else` block is executed.
 
-:
 ```
 case person then
     == john { "hello john" }
     == jane { "hello jane" }
 else { "hello stranger" }
 ```
+</def>
 
-**Different Condition Operators**
+<def title="Different Condition Operators">
 
-:
 All comparison operators, except for the `<=>` operator, can be used on branches. This
-includes: `==`, `!=`, `<`, `>`, `<=`,
-`>=` and `is`. The `is` operator is used for pattern matching, and the `==` operator is used for regular comparisons.
+includes: `==`, `!=`, `<`, `>`, `<=`,`>=` and `is`. The `is` operator is used for pattern matching, and the `==`
+operator is used for regular comparisons.
 
-:
 ```
 case age then
     <  0 { "error" }
@@ -49,9 +47,10 @@ case age then
 else { "senior" }
 ```
 
-**Pattern Matching (Object Destructure)**
+</def>
 
-:
+<def title="Pattern Matching (Object Destructure)">
+
 ```
 case person then
     is Person(name="john", ..) { "hello john" }
@@ -59,14 +58,13 @@ case person then
 else { "hello stranger" }
 ```
 
-:
-> All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows
-> regular object destructuring rules.
-> {style="note"}
+<note>
+All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows regular object destructuring rules.
+</note>
+</def>
 
-**Pattern Matching (Tuple Destructure)**
+<def title="Pattern Matching (Tuple Destructure)">
 
-:
 ```
 case tuple then
     is (1, ..) { "tuple starts with 1" }
@@ -74,13 +72,13 @@ case tuple then
 else { "tuple is something else" }
 ```
 
-:
-> The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
-> {style="note"}
+<note>
+The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
+</note>
+</def>
 
-**Pattern Matching (Type Destructure)**
+<def title="Pattern Matching (Type Destructure)">
 
-:
 ```
 case value then
     is Str { "value is Str" }
@@ -88,13 +86,14 @@ case value then
 else { "value is something else" }
 ```
 
-:
-> The type in each pattern must be one of the types forming the union type of `value`.
-{style="note"}
+<note>
+The type in each pattern must be one of the types forming the union type of `value`.
+</note>
 
-**Binding (Object Destructure)**
+</def>
 
-:
+<def title="Binding (Object Destructure)">
+
 ```
 case person then
     is Person(name="john", age, ..) { "hello john, you are ${age} years old" }
@@ -102,33 +101,30 @@ case person then
 else { "hello stranger" }
 ```
 
-:
-> Both `name` and `age` are brought into their respective blocks, because both variable names appear.
-> {style="note"}
+<note>
+Both `name` and `age` are brought into their respective blocks, because both variable names appear.
+</note>
 
-:
-> The only variable names that can be used are the attribute names, because the class is being destructured. This
-> follows regular object destructuring rules.
-> {style="warning"}
+<warning>
+The only variable names that can be used are the attribute names, because the class is being destructured. This follows regular object destructuring rules.
+</warning>
+</def>
 
-**Binding (Tuple Destructure)**
+<def>
 
-:
 ```
 case tuple then
     is (a, 1) { "tuple is ($a, 1)" }
     is (b, 2) { "tuple is ($b, 2)" }
 else { "tuple is something else" }
 ```
+<note>
+Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring rules.
+</note>
+</def>
 
-:
-> Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring
-> rules.
-> {style="note"}
+<def title="Multiple Patterns per Branch">
 
-**Multiple Patterns per Branch**
-
-:
 ```
 case person then
     == john, jane { "hello john or jane" }
@@ -136,21 +132,19 @@ case person then
 else { "hello stranger" }
 ```
 
-:
-> Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions
-> for more information.
-> {style="warning"}
+<warning>
+Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions for more information.
+</warning>
+
+</def>
+
+</deflist>
 
 **Pattern Guards**
 
 **Unrelated Boolean Conditions**
 
-**Ternary Operators**
-
-:
-```
-case person then == john { "hello john" } else { "hello stranger" }
-```
+**Ternary Operator Mocking**
 
 ## Design Decisions
 

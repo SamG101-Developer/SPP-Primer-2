@@ -4,7 +4,7 @@
 
 <secondary-label ref="doc-complete"/>
 
-![11-memory-management-intro](11-memory-management-intro.png){width="100"}
+[//]: # (![11-memory-management-intro]&#40;11-memory-management-intro.png&#41;{width="100"})
 
 **Contents**
 - [](11-1-Memory-Model.md)

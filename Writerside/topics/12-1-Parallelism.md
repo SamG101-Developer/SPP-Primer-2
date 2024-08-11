@@ -45,20 +45,17 @@ concurrently. This can be seen in the `std::Mutex::exit_mut` method, which is su
 
 Sharing data between threads requires the `Shared` reference-counted type to be used in combination with a `Mutex`.
 
-**Sharing Example 1**
+<deflist>
+<def title="Sharing Example 1">
 
-:
-> Note that this example will fail, because of the double move of the `m` variable, into both the closures `f1` and
-> `f2`.
-{style="warning"}
+> Note that this example will fail, because of the double move of the `m` variable, into both the closures `f1` and`f2`.
+> {style="warning"}
 
-:
 ```
 let m = Mutex(value=0)
 let h = Vec[Thread]()
 ```
 
-:
 ```
 let f1 = fun () [m] -> Void {
     with value = m.lock_mut() { value += 1 }
@@ -68,27 +65,24 @@ let f2 = fun () [m] -> Void {
 }
 ```
 
-:
 ```
 h.emplace_tail(Thread(target=f1))
 h.emplace_tail(Thread(target=f2))
 h.iter_mut().for_each(Thread::start)
 ```
+</def>
 
-**Sharing Example 2**
+<def title="Sharing Example 2">
 
-:
 > This example will work, because the `Shared[T]` type is used to wrap the mutex. This allows the mutex to be shared
 > between threads, without a double move.
-{style="note"}
+> {style="note"}
 
-:
 ```
 let m = Shared(value=Mutex(value=0))
 let h = Vec[Thread]()
 ```
 
-:
 ```
 let f1 = fun () [m1 = m.clone()] -> Void {
     with value = m1.lock_mut() { value += 1 }
@@ -98,9 +92,10 @@ let f2 = fun () [m1 = m.clone()] -> Void {
 }
 ```
 
-:
 ```
 h.emplace_tail(Thread(target=f1))
 h.emplace_tail(Thread(target=f2))
 h.iter_mut().for_each(Thread::start)
 ```
+</def>
+</deflist>

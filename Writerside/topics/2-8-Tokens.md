@@ -6,7 +6,6 @@
 
 <secondary-label ref="doc-subj-update"/>
 
-
 ## Tokens
 
 - `{`
@@ -53,8 +52,6 @@
 
 ## Token Descriptions
 
-### Bracket Tokens
-
 `{ }`
 : - Introduce a new scope (`cls/sup/fun/case/loop/with/else` or unnamed).
 
@@ -62,7 +59,6 @@
 : - Group generic parameters or arguments.
 : - Group long-hand generic constraints (`where`)
 : - Group lambda captures.
-: > Lambda capture syntax is subject to change. {style="warning"}
 
 `( )`
 : - Group function parameters or arguments.
@@ -71,7 +67,6 @@
 : - Group multiple type imports.
 : - Parenthesized expressions.
 : - Tuple literals.
-: > Type imports might switch to `{}` depending on updated scoping rules. {style="warning"}
 
 `:`
 : - Define a type annotation
