@@ -7,7 +7,7 @@
 **Primary Expressions**
 
 1. Literals
-2. Object Initializations
+2. [](7-3-Object-Initialization.md)
 3. Lambda Expressions
 4. Parenthesized Expressions
 5. Identifiers

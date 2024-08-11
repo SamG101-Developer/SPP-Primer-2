@@ -61,7 +61,7 @@ fun function(mut a: MyType, b: MyType) -> Void {
 
 ### Pattern Matching
 
-See the section on [flow typing]() for more information on pattern matching.
+See the section on [flow typing](5-9-Flow-Typing.md) for more information on pattern matching.
 
 ## Design Decisions
 

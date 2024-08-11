@@ -5,5 +5,5 @@
 <secondary-label ref="doc-wip"/>
 
 **Contents**
-1. [](10-1-Residual-Exceptions.md)
-2. [](10-2-Aborting.md)
+- [](10-1-Residual-Exceptions.md)
+- [](10-2-Aborting.md)

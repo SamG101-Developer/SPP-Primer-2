@@ -14,11 +14,11 @@
 
 - **Function identifier**: The name of the function, following
   the [non-type-identifier](2-5-Identifiers.md#naming-rules) rules. Multiple functions in the same scope can have the
-  same name - this creates [overloads]() of the function with different signatures.
+  same name - this creates [overloads](8-3-Function-Overloading.md) of the function with different signatures.
 
 - **Generic type parameters**: A group of generic parameters can optionally be defined following the identifier, in
   square brackets. Some of these generics may be "inferable" from parameter types, or other generic constraints. See
-  the [generics]() section for more information about the order they must be defined in.
+  the [generics](9-Generics.md) section for more information about the order they must be defined in.
 
 - **Function parameters**: The group of function parameters, which can be empty, must be defined following the function
   identifier or generic type parameters. Each parameter is defined by an identifier, and a required type. There are a
@@ -50,7 +50,7 @@ follow a fixed order too: `self -> required -> optional -> variadic`.
 ### Required Parameters
 
 Required parameters are the most common type of parameter. They are defined by an identifier, followed by a colon, an
-optional convention, and xthen the type of the parameter. Types are always required, because of the unidirectional type
+optional convention, and then the type of the parameter. Types are always required, because of the unidirectional type
 inference; parameter types are not inferred from function call sites, as this would make overload resolution extremely
 difficult and ambiguous. The syntax for defining a required parameter is:
 

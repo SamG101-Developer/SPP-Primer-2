@@ -8,6 +8,7 @@
 **Contents**
 - [](7-1-Class-Definition.md)
 - [](7-2-Superimposition-Definition.md)
+- [](7-3-Object-Initialization.md)
 - Methods
 - Inheritance & Polymorphism
 - Encapsulation & Access Modifiers

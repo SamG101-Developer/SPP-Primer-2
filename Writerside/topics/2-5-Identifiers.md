@@ -58,21 +58,21 @@ overriding specific functionality.
 Beneath is a translation table of key Python magic methods to the S++ equivalent, to demonstrate the lack of special
 identifiers.
 
-| Python Magic Method                        | S++ Equivalent                                                                                 |
-|--------------------------------------------|------------------------------------------------------------------------------------------------|
-| `__new__`/`__init__`                       | [Uniform Object Initialisation]()                                                              |
-| `__del__`                                  | Superimpose `std::Del`, override `del(self) -> std::Void`                                      |
-| `__repr__`/`__str__`/`__format__`          | Superimpose `std::From[T]` on the `std::Str` type (see [type conversion]())                    |
-| `__bytes__`                                | Superimpose `std::From[T]` on the `std::Bytes` type                                            |
-| `__bool__`                                 | Superimpose `std::From[T]` on the `std::Bool` type                                             |
-| `__lt__`                                   | Superimpose `std::ops::Lt`, override `lt(self, other: T) -> std::Bool`                         |
-| `__le__`                                   | Superimpose `std::ops::Le`, override `le(self, other: T) -> std::Bool`                         |
-| `__gt__`                                   | Superimpose `std::ops::Gt`, override `gt(self, other: T) -> std::Bool`                         |
-| `__ge__`                                   | Superimpose `std::ops::Ge`, override `ge(self, other: T) -> std::Bool`                         |
-| `__eq__`                                   | Superimpose `std::ops::Eq`, override `eq(self, other: T) -> std::Bool`                         |
-| `__ne__`                                   | Superimpose `std::ops::Ne`, override `ne(self, other: T) -> std::Bool`                         |
-| `__hash__`                                 | Superimpose `std::Hash`, override `hash(self) -> std::U64` (see [object hashing]())            |
-| `__getattr__`/`__getattribute__`/`__get__` | Superimpose `std::Rx`, override `attr_get(self, name: std::Str) -> std::Any`                   |
-| `__setattr__`/`__set__`                    | Superimpose `std::Rx`, override `attr_set(self, name: std::Str, value: std::Any) -> std::Void` |
-| `__delattr__`/`__delete__`                 | Superimpose `std::Rx`, override `attr_del(self, name: std::Str) -> std::Void`                  |
-| `__dir__`                                  | Has no use in S++                                                                              |
+| Python Magic Method                        | S++ Equivalent                                                                                             |
+|--------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| `__new__`/`__init__`                       | [Uniform Object Initialisation](7-3-Object-Initialization.md)                                              |
+| `__del__`                                  | Superimpose `std::Del`, override `del(self) -> std::Void`                                                  |
+| `__repr__`/`__str__`/`__format__`          | Superimpose `std::From[T]` on the `std::Str` type (see [type conversion](5-13-Type-Casting-Conversion.md)) |
+| `__bytes__`                                | Superimpose `std::From[T]` on the `std::Bytes` type                                                        |
+| `__bool__`                                 | Superimpose `std::From[T]` on the `std::Bool` type                                                         |
+| `__lt__`                                   | Superimpose `std::ops::Lt`, override `lt(self, other: T) -> std::Bool`                                     |
+| `__le__`                                   | Superimpose `std::ops::Le`, override `le(self, other: T) -> std::Bool`                                     |
+| `__gt__`                                   | Superimpose `std::ops::Gt`, override `gt(self, other: T) -> std::Bool`                                     |
+| `__ge__`                                   | Superimpose `std::ops::Ge`, override `ge(self, other: T) -> std::Bool`                                     |
+| `__eq__`                                   | Superimpose `std::ops::Eq`, override `eq(self, other: T) -> std::Bool`                                     |
+| `__ne__`                                   | Superimpose `std::ops::Ne`, override `ne(self, other: T) -> std::Bool`                                     |
+| `__hash__`                                 | Superimpose `std::Hash`, override `hash(self) -> std::U64`                                                 |
+| `__getattr__`/`__getattribute__`/`__get__` | Superimpose `std::Rx`, override `attr_get(self, name: std::Str) -> std::Any`                               |
+| `__setattr__`/`__set__`                    | Superimpose `std::Rx`, override `attr_set(self, name: std::Str, value: std::Any) -> std::Void`             |
+| `__delattr__`/`__delete__`                 | Superimpose `std::Rx`, override `attr_del(self, name: std::Str) -> std::Void`                              |
+| `__dir__`                                  | Has no use in S++                                                                                          |

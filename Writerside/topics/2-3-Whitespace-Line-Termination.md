@@ -14,7 +14,7 @@ Whitespace is always skipped in the parser, making it irrelevant to the parsing 
 Rust and C++. This means that S++ is a **whitespace-insensitive language**.
 
 Whilst whitespace is ignored by the parser, it is still important to use whitespace to make code more readable. See
-the [style guide]() for more information recommendations on whitespace usage.
+the [style guide](15-Style-Guide.md) for more information recommendations on whitespace usage.
 
 ## Line Termination
 

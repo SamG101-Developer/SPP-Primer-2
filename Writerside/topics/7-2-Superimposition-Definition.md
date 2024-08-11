@@ -67,4 +67,6 @@ superimposed and the method overridden. For example, if `Copy -> A -> B -> C` an
 method, then the `Copy` type must be superimposed over `C` again, with `fun copy` overridden. This allows a loser
 coupling between classes, and a more organized way to manage inheritance.
 
-The [methods]() and [inheritance]() sections provide more detail on how superimposition can be used.
+The [methods](#) and [inheritance](#) sections provide more detail on how superimposition can be used.
+
+[//]: # (TODO: Add links to methods and inheritance sections)

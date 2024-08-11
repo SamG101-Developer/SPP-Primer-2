@@ -6,4 +6,13 @@
         <accepts>page.html</accepts>
     </rule>
     -->
+    <rule id="275d0163">
+        <description>
+            <![CDATA[Created after removal of "<7-3-Object-Initialization.md>" from S++ Documentation]]></description>
+        <accepts>7-3-Object-Initialization.html</accepts>
+    </rule>
+    <rule id="72cc5e80">
+        <description>Created after removal of "7-3-Object-Initialization" from S++ Documentation</description>
+        <accepts>7-3-Object-Initialization.html</accepts>
+    </rule>
 </rules>

@@ -59,7 +59,9 @@ The numeric postfix literals are:
 
 The string literal syntax is the same as almost every language: a sequence of characters enclosed in double quotes. This
 will create an `std::Str` object, which is the only string type in S++. For more information on strings, see
-the [STL String]() section.
+the [STL String](#) section.
+
+[//]: # (TODO: Add link to STL String section)
 
 Single quotes cannot be used to create a string, as this would provide 2 ways to do the same thing, and create an
 unnecessary styling difference.
@@ -94,4 +96,6 @@ There are 3 "types" of tuples (all `std::Tup`), which are used to store differen
 | 2            | `(1, 2)`              |
 
 Note the extra trailing comma in the 1-tuple literal. This is required to distinguish between a tuple and a single value
-in parentheses. For more information on tuples, see the [STL Tuple]() section.
+in parentheses. For more information on tuples, see the [STL Tuple](#) section.
+
+[//]: # (TODO: Add link to STL Tuple section)

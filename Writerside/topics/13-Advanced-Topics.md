@@ -6,5 +6,5 @@
 
 **Contents**
 
-- [](13-1-Compiler-Structure.md)
+- Compiler Structure
 - [](13-2-FFI.md)
