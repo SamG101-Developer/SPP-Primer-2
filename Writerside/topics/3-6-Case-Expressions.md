@@ -17,6 +17,13 @@ sometimes use either, if an entire literal is provided with no bindings.
 
 ## Usages
 
+<secondary-label ref="examples-todo"/>
+<secondary-label ref="doc-sect-wip"/>
+<secondary-label ref="doc-sect-subj-update"/>
+
+The `case` expression is extremely flexible and can be used in many different ways. The following examples show the
+different ways the `case` expression can be used.
+
 <deflist>
 <def title="Basic Usage Example">
 

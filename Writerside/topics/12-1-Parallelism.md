@@ -14,7 +14,6 @@ the `with` context block keyword.
 ## Mutexes
 
 <secondary-label ref="feature-frozen"/>
-
 <secondary-label ref="doc-sect-wip"/>
 
 **Mutex Locking Example**
@@ -40,7 +39,6 @@ concurrently. This can be seen in the `std::Mutex::exit_mut` method, which is su
 ### Sharing Data between Threads
 
 <secondary-label ref="feature-frozen"/>
-
 <secondary-label ref="examples-todo"/>
 
 Sharing data between threads requires the `Shared` reference-counted type to be used in combination with a `Mutex`.
