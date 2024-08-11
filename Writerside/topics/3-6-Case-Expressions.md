@@ -15,7 +15,7 @@ Both the `is` and `==` operators are usable in the `case` expression. The `is` o
 against destructuring. The `==` cannot be used, because destructuring does not provide an entire object. Tuples can
 sometimes use either, if an entire literal is provided with no bindings.
 
-### Examples
+## Usages
 
 <deflist>
 <def title="Basic Usage Example">
@@ -58,9 +58,9 @@ case person then
 else { "hello stranger" }
 ```
 
-<note>
-All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows regular object destructuring rules.
-</note>
+> All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows
+> regular object destructuring rules.
+> {style="note"}
 </def>
 
 <def title="Pattern Matching (Tuple Destructure)">
@@ -72,9 +72,8 @@ case tuple then
 else { "tuple is something else" }
 ```
 
-<note>
-The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
-</note>
+> The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
+> {style="note"}
 </def>
 
 <def title="Pattern Matching (Type Destructure)">
@@ -86,10 +85,8 @@ case value then
 else { "value is something else" }
 ```
 
-<note>
-The type in each pattern must be one of the types forming the union type of `value`.
-</note>
-
+> The type in each pattern must be one of the types forming the union type of `value`.
+> {style="note"}
 </def>
 
 <def title="Binding (Object Destructure)">
@@ -101,13 +98,12 @@ case person then
 else { "hello stranger" }
 ```
 
-<note>
-Both `name` and `age` are brought into their respective blocks, because both variable names appear.
-</note>
+> Both `name` and `age` are brought into their respective blocks, because both variable names appear.
+> {style="note"}
 
-<warning>
-The only variable names that can be used are the attribute names, because the class is being destructured. This follows regular object destructuring rules.
-</warning>
+> The only variable names that can be used are the attribute names, because the class is being destructured. This
+> follows regular object destructuring rules.
+> {style="warning"}
 </def>
 
 <def>
@@ -118,9 +114,10 @@ case tuple then
     is (b, 2) { "tuple is ($b, 2)" }
 else { "tuple is something else" }
 ```
-<note>
-Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring rules.
-</note>
+
+> Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring
+> rules.
+> {style="note"}
 </def>
 
 <def title="Multiple Patterns per Branch">
@@ -132,9 +129,9 @@ case person then
 else { "hello stranger" }
 ```
 
-<warning>
-Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions for more information.
-</warning>
+> Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions
+> for more information.
+> {style="warning"}
 
 </def>
 
