@@ -20,9 +20,10 @@ meaning that a value is moved when assigned to a variable, passed as a function 
 
 **Example**
 
-: In the following example, the variable `x` is declared as initialized with the value `"hello"`. The value inside `x`
-is then moved into the variable `y` on declaration. The variable `x` is now non-initialized, and cannot be used until it
-is re-assigned a value (requiring it to be declared as `mut`).
+:
+In the following example, the variable `x` is declared as initialized with the value `"hello"`. The value inside `x`is
+then moved into the variable `y` on declaration. The variable `x` is now non-initialized, and cannot be used until it is
+re-assigned a value (requiring it to be declared as `mut`).
 
 :
 ```
@@ -44,7 +45,8 @@ always completely valid, mitigating any unexpected behaviour.
 
 **Example**
 
-: In the following example, a partial move is created, when moving the `x` attribute off of the `point`.
+:
+In the following example, a partial move is created, when moving the `x` attribute off of the `point`.
 
 :
 ```
@@ -75,7 +77,8 @@ independent, and don't require each other by default.
 
 **Example**
 
-: In the following example, the type `Point` is defined with the `Copy` type.
+:
+In the following example, the type `Point` is defined with the `Copy` type.
 
 :
 ```
