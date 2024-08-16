@@ -21,8 +21,7 @@ let x = async function_name()
 
 > Calling a function with the `async` modifier will wrap the return type in a `Fut[T]` type, where `T` is the original
 > return type of the function.
-
-{style="note"}
+> {style="note"}
 
 ### Return Value Wrapping
 
@@ -33,16 +32,8 @@ the value is resolved, but alternatively, `function_name` could have just been c
 
 ## Borrowed Parameters in the Asynchronous Context
 
-<secondary-label ref="feature-subj-change"/>
-
 As issue that arises with asynchronous function is the memory model. With synchronous functions, the line following a
 function call will only execute after the function call frame is popped. With an asynchronous function, this is not
 possible, because there is no guarantee that the function call frame will be popped before the next line is executed.
 
-This means that an owned object might be consumed in the outer frame whilst a borrow is active in the asynchronous
-function call. To mitigate this potential memory issue, borrows cannot be taken in the asynchronous context.
-
-> Alternative implementations are being considered to allow borrows in the asynchronous context, without violating the
-> memory model.
-
-{style="warning"}
+See the section on [pinning](11-5-Pinning.md) for more information on how S++ handles this issue.

@@ -11,4 +11,4 @@
 - [](11-2-Ownership-Tracking.md)
 - [](11-3-Second-Class-Borrows.md)
 - [](11-4-Law-of-Exclusivity.md)
-- [](11-5-Memory-Error-Mitigations.md)
+- [](11-5-Pinning.md)

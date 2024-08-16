@@ -62,9 +62,8 @@ generic parameter's argument is `Void`, then the `next` method is just called wi
 <secondary-label ref="feature-frozen"/>
 
 All objects being sent into coroutines must be owned objects, because the coroutine could suspend, the caller consume
-the owned object, then the coroutine resume and attempt to use the borrow. For the same reason, all variables passed to
-the coroutine functions as function arguments must be owned objects. It is checked that all parameters use the move
-convention, when the coroutine prototype is defined.
+the owned object, then the coroutine resume and attempt to use the borrow. See the section on [pinning](11-5-Pinning.md)
+for more information on how S++ handles this issue.
 
 ### Coroutine Chaining
 

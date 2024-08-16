@@ -11,5 +11,5 @@
 - [](8-3-Function-Overloading.md)
 - [](8-4-Function-Recursion.md)
 - [](8-5-Asynchronous-Functions.md)
-- Partial Functions
+- [](8-6-Partial-Functions.md)
 - Closure Functions

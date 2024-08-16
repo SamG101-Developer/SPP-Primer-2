@@ -18,11 +18,12 @@ important.
 - [](5-3-Tuples.md)
 - [](5-4-Function-Types.md)
 - [](5-5-Union-Types.md)
+- Self type
 - Intersection Types
 - Residual Types
-- Affine Typing
 - [](5-9-Flow-Typing.md)
 - [](5-10-Type-Shorthands.md)
 - [](5-11-Type-Inference.md)
 - Type Aliasing
 - [](5-13-Type-Casting-Conversion.md)
+- Affine Typing (?)

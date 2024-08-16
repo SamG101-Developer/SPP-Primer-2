@@ -6,3 +6,4 @@
 
 **Introduction**
 - [](1-1-Terms-Definitions.md)
+- [](1-2-Key-Features-Benefits.md)

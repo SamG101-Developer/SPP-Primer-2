@@ -52,6 +52,8 @@
 
 ## Token Descriptions
 
+### Brackets
+
 `{ }`
 : - Introduce a new scope (`cls/sup/fun/case/loop/with/else` or unnamed).
 
@@ -68,35 +70,7 @@
 : - Parenthesized expressions.
 : - Tuple literals.
 
-`:`
-: - Define a type annotation
-: - Define a generic type constraint.
-
-`_`
-: - Skip single values in a destructure operation.
-: - Skip single parameters in a function call, creating a partial function application.
-
-`..`
-: - Define a variadic parameter in a function signature (last parameter).
-: - Define a variadic generic type parameter (last generic type parameter).
-: - Tuple unpacking (tuple into multiple arguments).
-: - Binary or function folding operation.
-: - Bind multiple elements from a tuple into a new tuple variable.
-: - Skip multiple elements in a tuple destructure operation.
-
-`?`
-: - Propagate an error to the caller for a residual type in a function.
-
-`.`
-: - Runtime member access of an object.
-: - Decimal point in a floating-point number.
-
-`->`
-: - Define a function return type.
-: - Define a lambda return type.
-
-`@`
-: - Define an annotation.
+### Arithmetic Operators
 
 `+`
 : - Define a positive number literal.
@@ -122,12 +96,16 @@
 `%%`
 : - Define a binary modulo operation.
 
+### Type Operators
+
 `&`
 : - Define a borrow operation.
 : - Define an intersection type.
 
 `|`
 : - Define a union type.
+
+### Comparison Operators
 
 `<=>`
 : - Define a comparison operation.
@@ -157,6 +135,8 @@
 : - Define a binding for the `with` block.
 : - Define an initialized variable or an assignment operation.
 
+### Compound Assignment Operators
+
 `+=`
 : - Define an addition assignment operation.
 
@@ -178,8 +158,42 @@
 `%%=`
 : - Define a modulo assignment operation.
 
+### Residual Operators
+
+`?`
+: - Propagate an error to the caller for a residual type in a function.
+
 `??`
 : - Define a null coalescing operation.
 
+### Other Operators
+
 `,`
 : - Separate items in a list of values.
+
+`:`
+: - Define a type annotation
+: - Define a generic type constraint.
+
+`_`
+: - Skip single values in a destructure operation.
+: - Skip single parameters in a function call, creating a partial function application.
+
+`..`
+: - Define a variadic parameter in a function signature (last parameter).
+: - Define a variadic generic type parameter (last generic type parameter).
+: - Tuple unpacking (tuple into multiple arguments).
+: - Binary or function folding operation.
+: - Bind multiple elements from a tuple into a new tuple variable.
+: - Skip multiple elements in a tuple destructure operation.
+
+`.`
+: - Runtime member access of an object.
+: - Decimal point in a floating-point number.
+
+`->`
+: - Define a function return type.
+: - Define a lambda return type.
+
+`@`
+: - Define an annotation.

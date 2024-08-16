@@ -22,6 +22,7 @@ same length, to make the code more aligned.
 - `cls`
 - `sup`
 - `fun`
+- `cor`
 - `use`
 - `let`
 - `mut`
@@ -50,6 +51,12 @@ same length, to make the code more aligned.
 
 {columns="4"}
 
+## Likely future keywords
+
+- `type`
+
+{columns="4"}
+
 ## Keyword Descriptions
 
 ### Module Level Keywords {collapsible="true"}
@@ -58,21 +65,21 @@ same length, to make the code more aligned.
 : - Define a module to be included in the module tree for compilation.
 
 `cls`
-: - Define a class (state only: attributes).
+: - Define a [class](7-1-Class-Definition.md) (state only: attributes).
 
 `sup`
-: - Define a regular superimposition block (behaviour: methods, typedefs)
+: - Define a regular [superimposition](7-2-Superimposition-Definition.md) block (behaviour: methods, typedefs)
 : - Define an inheritance superimposition block
-: - Pass superclass instances to object initializations.
+: - Pass superclass instances to [object initializations](7-3-Object-Initialization.md).
 : `on`
     : - Superimpose a class "on" another class.
 
 `fun`
-: - Define a subroutine function.
+: - Define a [subroutine](8-1-Function-Definition.md) function.
 : - Define a subroutine lambda functions.
 
 `cor`
-: - Define a coroutine function.
+: - Define a [coroutine](12-2-Concurrency.md) function.
 : - Define a coroutine lambda functions.
 
 `use`
@@ -84,9 +91,9 @@ same length, to make the code more aligned.
 ### Variable Keywords {collapsible="true"}
 
 `let`
-: - Define a variable.
+: - Define a [variable](4-1-Variables.md).
 : `mut`
-    : - Mark a variable as mutable.
+    : - Mark a [variable](4-1-Variables.md) as [mutable](4-1-Variables.md#mutability).
 
 `mut`
 : - Mark a type's borrow convention as mutable.
