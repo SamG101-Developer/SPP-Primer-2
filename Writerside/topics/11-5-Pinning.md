@@ -38,7 +38,8 @@ A borrow is "pinned", if the corresponding owned object that the borrow points t
 coroutine of asynchronous function are pinned, then it is guaranteed that they are valid for the duration for the
 entire non-deterministic duration of the call.
 
-There are a few restrictions to ensure that lifetimes remain valid:
+There are a few restrictions to ensure that borrowed object's lifetimes remain valid within an asynchronous function
+call or a coroutine:
 1. A borrowed value's corresponding owned object must be pinned. This ensures that the borrowed value is valid for the
    duration of the call, and the memory location it points to will not move.
 2. For an async function, an owned object cannot be unpinned, unless the future has been awaited. This ensures that

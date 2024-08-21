@@ -193,3 +193,8 @@ fun main() -> Void {
     std.print(x)  # prints 2
 }
 ```
+
+## Global Constants
+
+S++ allows for global constants to be defined. These are variables that are defined at the top level of a file, and
+cannot be mutated. 

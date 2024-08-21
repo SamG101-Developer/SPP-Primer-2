@@ -73,4 +73,5 @@ let obj = MyType(x=1, y=2, sup=(o,))
 ```
 
 Because `Copy` and `Clone` are stateless classes (no attributes), they do not need to be provided in the `sup=`
-argument, as they don't affect the memory layout of the object.
+argument, as they don't affect the memory layout of the object. Typically, a static `new` method is defined on most
+classes, which will internally handle the super-classes being created and assigned.

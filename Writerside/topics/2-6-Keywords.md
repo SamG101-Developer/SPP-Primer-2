@@ -34,6 +34,8 @@ same length, to make the code more aligned.
 - `exit`
 - `ret`
 - `gen`
+- `pin`
+- `rel`
 - `where`
 - `is`
 - `as`
@@ -98,6 +100,12 @@ same length, to make the code more aligned.
 `mut`
 : - Mark a type's borrow convention as mutable.
 : - Take a mutable borrow of a variable.
+
+`pin`
+: - Pin a value to ensure it remains in the same memory location.
+
+`rel`
+: - Release the pin on a value.
 
 ### Control Flow Keywords {collapsible="true"}
 
