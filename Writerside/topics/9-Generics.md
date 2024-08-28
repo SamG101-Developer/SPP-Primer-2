@@ -8,4 +8,4 @@
 **Contents**
 - [](9-1-Generics-Inference.md)
 - [](9-2-Generic-Constraints.md)
-- Specialization
+- [](9-3-Specialization.md)
