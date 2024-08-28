@@ -138,9 +138,10 @@ is converted to:
 ```
 cor coroutine_4() -> GenMov[Gen=BigInt] {
     let inner = coroutine_3()
-    loop case inner.next() then {
-        is Some(value) => gen value
-        is None => exit
+    loop true {
+        case inner.next() then
+            is Some(value) => gen value
+            is None => exit
     }
     gen 4
 }
