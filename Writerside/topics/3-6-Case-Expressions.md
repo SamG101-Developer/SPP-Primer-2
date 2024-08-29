@@ -24,8 +24,7 @@ sometimes use either, if an entire literal is provided with no bindings.
 The `case` expression is extremely flexible and can be used in many different ways. The following examples show the
 different ways the `case` expression can be used.
 
-<deflist>
-<def title="Basic Usage Example">
+### Basic Usage Example
 
 The basic example shows the condition `person` being compared against the existing objects `john` and `jane`. If the
 condition matches either of the objects, the corresponding block is executed. If the condition doesn't match any of the
@@ -37,9 +36,8 @@ case person then
     == jane { "hello jane" }
 else { "hello stranger" }
 ```
-</def>
 
-<def title="Different Condition Operators">
+### Different Condition Operators
 
 All comparison operators, except for the `<=>` operator, can be used on branches. This
 includes: `==`, `!=`, `<`, `>`, `<=`,`>=` and `is`. The `is` operator is used for pattern matching, and the `==`
@@ -53,9 +51,12 @@ case age then
     <  60 { "adult" }
 else { "senior" }
 ```
-</def>
 
-<def title="Pattern Matching (Object Destructure)">
+### Pattern Matching (Object Destructure)
+
+Pattern matching uses the `is` operator to destructure an object. The object is compared against the pattern, and if the
+pattern matches, the block is executed. If the pattern doesn't match, the next branch is checked. The type following
+the `is` keyword must match the expression type exactly.
 
 ```
 case person then
@@ -67,9 +68,12 @@ else { "hello stranger" }
 > All attributes must be present, unless the `..` token is used, which skips the rest of the attributes. This follows
 > regular object destructuring rules.
 > {style="note"}
-</def>
 
-<def title="Pattern Matching (Tuple Destructure)">
+### Pattern Matching (Tuple Destructure)
+
+Pattern matching can also be used to destructure tuples. There are cases where destructuring a tuple is the same as
+checking for equality, if every item is a non-symbol value. In these cases, the `==` operator can be used. However, if
+any item is a symbol, the `is` operator must be used.
 
 ```
 case tuple then
@@ -80,9 +84,13 @@ else { "tuple is something else" }
 
 > The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
 > {style="note"}
-</def>
 
-<def title="Pattern Matching (Type Destructure)">
+### Pattern Matching (Type Destructure)
+
+Pattern matching can also be used to destructure union types into composite types. This allows flow typing to be used in
+the inner blocks, allowing for less convoluted type conversions. If multiple type patterns are provided,
+like `is Str, U32`, then the flow typing will be the refined union of the types in the pattern. Both these types must be
+composites of the overall union type being inspected.
 
 ```
 case value then
@@ -93,9 +101,11 @@ else { "value is something else" }
 
 > The type in each pattern must be one of the types forming the union type of `value`.
 > {style="note"}
-</def>
 
-<def title="Binding (Object Destructure)">
+### Binding (Object Destructure)
+
+Binding can destructure object and capture the values into the block. This allows for the values to be used in the
+block. The variable names must match the attribute names exactly.
 
 ```
 case person then
@@ -104,15 +114,15 @@ case person then
 else { "hello stranger" }
 ```
 
-> Both `name` and `age` are brought into their respective blocks, because both variable names appear.
+> Both `name` and `age` are brought into their respective blocks, because both variable names appear, despite a
+> comparison to the names too.
 > {style="note"}
 
 > The only variable names that can be used are the attribute names, because the class is being destructured. This
 > follows regular object destructuring rules.
 > {style="warning"}
-</def>
 
-<def title="Binding (Tuple Destructure)">
+### Binding (Tuple Destructure)
 
 ```
 case tuple then
@@ -124,9 +134,8 @@ else { "tuple is something else" }
 > Any variable names can be used, because the tuple is being destructured. This follows regular tuple destructuring
 > rules.
 > {style="note"}
-</def>
 
-<def title="Multiple Patterns per Branch">
+### Multiple Patterns per Branch
 
 ```
 case person then
@@ -139,15 +148,28 @@ else { "hello stranger" }
 > for more information.
 > {style="warning"}
 
-</def>
+### Nested destructuring
 
-</deflist>
+### Pattern Guards
 
-**Pattern Guards**
+### Unrelated Boolean Conditions
 
-**Unrelated Boolean Conditions**
+Using the `else` keyword with a new `case` expression follows the typical `else if` found in C-like languages. This
+allows for unrelated conditions to be checked in the same block. This requires a separate parsing rule to remove the
+extra `{}` tokens following the `else` keyword.
 
-**Ternary Operator Mocking**
+```
+case some_condition().attribute then
+   == 1 { "condition is 1" }
+else case other_condition().attribute then
+   == 2 { "condition is 2" }
+   == 3 { "condition is 3" }
+else {
+   "condition is something else"
+}
+```
+
+### Ternary Operator Mocking
 
 ## Design Decisions
 

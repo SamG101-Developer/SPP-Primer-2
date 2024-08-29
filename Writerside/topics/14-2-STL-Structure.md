@@ -1,4 +1,4 @@
-# 14.1. STL Structure
+# 14.2. STL Structure
 
 <primary-label ref="header-label"/>
 
@@ -16,8 +16,8 @@ The STL is split into 4 layers:
 
 The core layer is the most essential part of the STL, and must even be present in a `no-std` environment. It includes
 the absolute minimum functionality necessary to support a bare-bones runtime environment. This includes, and is limited
-to low level allocation and de-allocation, mock primitive types, essential data structures, minimal compiler-known
-stateless functionality classes, aborting and concurrency primitives:
+to: low level allocation and de-allocation; mock primitive types; essential data structures; minimal compiler-known
+stateless functionality classes; aborting and concurrency primitives:
 
 - **Allocation**: The `Alloc` class is the wrapper around manual memory management. Because only arrays are used for
   allocation, the `Alloc::allocate` method returns an array of empty elements. Bounds checking in the `Arr` class is

@@ -80,9 +80,13 @@
     <toc-element topic="13-Advanced-Topics.md">
         <toc-element topic="13-1-Compiler-Structure.md"/>
         <toc-element topic="13-2-FFI.md"/>
+        <toc-element topic="13-3-Low-Level-Operations.md"/>
     </toc-element>
     <toc-element topic="14-STL.md">
-        <toc-element topic="14-1-STL-Structure.md"/>
+        <toc-element topic="14-1-STL.md"/>
+        <toc-element topic="14-2-STL-Structure.md"/>
+        <toc-element topic="14-6-Containers.md"/>
+        <toc-element topic="14-7-Option-Result.md"/>
     </toc-element>
     <toc-element topic="15-Style-Guide.md"/>
 </instance-profile>
