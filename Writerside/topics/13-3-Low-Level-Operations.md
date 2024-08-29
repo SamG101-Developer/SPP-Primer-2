@@ -23,7 +23,7 @@ operations:
 3. LLVM IR functions. These are the actual implementations of the functions, which are written in LLVM IR and compiled
    into the `spp-llvm` library.
 
-```llvm
+```
 define void @console_print(i8* %input, i64 %length) {
     %1 = call i64 asm "syscall", "=r,{rax},{rdi},{rsi},{rdx}"(i64 1, i64 1, i8* %input, i64 %length)
     ret void
