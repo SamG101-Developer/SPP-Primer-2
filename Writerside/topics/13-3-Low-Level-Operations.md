@@ -6,54 +6,70 @@
 
 ## Low Level Operations
 
-S++ is designed to operate completely independently of any other languages, including C, in order to simplify the
-implementation of the compiler and runtime. This means that S++ must use its own techniques to manage ultra-low-level
-operations, such as io, time, random number generation, and threading.
+S++ utilizes `libc` for low-level operations, such as io, time, random number generation, and threading. This allows S++
+to be platform independent, as `libc` is available on all platforms.
 
 ## Implementation
 
-In order to achieve true independence from C, S++ implements its own LLVM code which handles these low-level operations,
-with platform specific implementations for each of the supported platforms. There are three stages to the low level
-operations:
+In order to interop with `libc`, S++ uses standard library linking techniques to call the C code. There are three stages
+to the low level operations:
 
-1. S++ functions. These include things such as `print`, `read`, `clear`. They call the second stage functions with the
-   correct arguments, such as converting strings to arrays etc.
-2. S++ LLVM stubs. These are the function signatures that represent the LLVM IR functions. They are connected to the
-   linked library "spp-llvm" which contains the actual implementations.
-3. LLVM IR functions. These are the actual implementations of the functions, which are written in LLVM IR and compiled
-   into the `spp-llvm` library.
+1. S++ functions. These include things such as `print`, `read`, `clear`, and form the STL API. They call the second
+   stage functions with the correct arguments, such as converting strings to arrays etc.
+2. S++ C stubs. These are the function signatures that represent the C functions. They are connected to the linked
+   library "spp-libc" which contains the actual implementations.
+3. C functions (in the `libc`library). These are the actual implementations of the functions, which are written in C and
+   compiled into the `spp-llvm` library.
 
-```
-define void @console_print(i8* %input, i64 %length) {
-    %1 = call i64 asm "syscall", "=r,{rax},{rdi},{rsi},{rdx}"(i64 1, i64 1, i8* %input, i64 %length)
-    ret void
-}
+## Issues with `libc`
 
-define i64 @console_read(i8* %output, i64 %length) {
-    %read = call i64 asm "syscall", "=r,{rax},{rdi},{rsi},{rdx}"(i64 0, i64 0, i8* %output, i64 %length)
-    ret i64 %read
-}
+There are some issues with `libc` that are addressed within the S++ binding API, so that `libc` cannot throw certain
+errors.
 
-define void @console_clear() {
-    %1 = call i64 asm "syscall", "=r,{rax}"(i64 2)
-    ret void
-}
-```
+- **Buffer Overflow**: Some functions in `libc` can cause buffer overflows, the most well-known being:
+    - functions `strcpy`, `strcat`: lack of bounds checking.
+    - functions `gets`, `scanf`: lack of input length checking.
+    - string routines not always guaranteed to null-terminate.
+    - function `printf`: can cause buffer overflows if the format string doesn't match the arguments.
+
+  All these security vulnerabilities are mitigated by introducing safe, wrapped versions of the methods, at the S++
+  level. That is, instead of direct argument conversion and calling the `libc` code, extra checks are performed. Because
+  the `libc` code can throw errors, the S++ wrappers return `Res` types, so that the error can be handled in S++, and
+  unexpected behaviour can be handled.
+
+- **Thread Safety**: `libc` functions are not always thread-safe.
+
+## Example
 
 ```
 mod std::io::console
 
-fun print(message: Str) -> Void {
-    llvm::console_print(message.as_arr(), message.length())
+fun print(string: Str) -> Res[I32, CError] {
+    let arr = Arr[U8]::from(string)
+    let res = libc::printf(&arr)
+    ret res.map_err(|_| CError::new("Failed to print"))
+    
+    ret case res then
+        >= 0 { Pass(value=res) }
+        else { Fail(error=CError::new("Failed to print")) }
 }
 
-fun read() -> Str {
-    let buffer = Arr[I8](length=256)
-    let read = llvm::console_read(&mut buffer, 256)
-    ret Str::from_arr(buffer)
-}
-
-fun clear() -> Void {
-    llvm::console_clear()
+fun read() -> Res[Str, CError] {
+    let mut buffer = Arr[U8](length=256)
+    let res = libc::scanf(&mut buffer)
+    
+    ret case res then
+        >= 0 { Pass(value=Str::from(buffer)) }
+        else { Fail(error=CError::new("Failed to read")) }
 }
 ```
+
+```
+mod ffi::spp_libc::_stub
+
+fun printf(&arr: Arr[U8]) -> I32 { }
+fun scanf(buffer: &mut Arr[U8]) -> I32 { }
+```
+
+The FFI system will [convert](13-2-FFI.md#conversions) the `&Arr[U8] @SPP` type to `const U8* @C`,
+and `&mut Arr[U8] @SPP` to `U8* @C`. The results from C will be `int @C`, which will be converted to `I32 @SPP`.

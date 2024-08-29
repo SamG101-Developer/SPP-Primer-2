@@ -10,8 +10,8 @@ S++ uses a multi-stage compiler, split into the following stages:
 - **Lexical Analysis**: The lexer reads the source code and converts it into a stream of tokens.
 - **Syntactic Analysis**: The parser reads the stream of tokens and converts it into an abstract syntax tree (AST).
 - **Preprocessing**: The preprocessor reads the AST and performs various transformations.
-- **Symbol Generation**: The symbol generator reads the AST and generates a symbol table.
-- **Sup Scope Loading**: The sup scope loader reads the AST and loads the superclasses of each class.
+- **Symbol Generation**: The symbol generator reads the AST and generates an outer symbol table.
+- **Sup Scope Loading**: The sup scope loader reads the AST and loads/links the superclasses of each class.
 - **Semantic Analysis**: The semantic analyzer reads the AST and performs various semantic checks.
 - **Code Generation**: LLVM IR code is generated from the AST.
 - **Executable or Library**:  The machine code is linked and converted into an executable or library.
