@@ -73,3 +73,36 @@ fun scanf(buffer: &mut Arr[U8]) -> I32 { }
 
 The FFI system will [convert](13-2-FFI.md#conversions) the `&Arr[U8] @SPP` type to `const U8* @C`,
 and `&mut Arr[U8] @SPP` to `U8* @C`. The results from C will be `int @C`, which will be converted to `I32 @SPP`.
+
+## Other platforms
+
+While `libc` is the standard C library for Unix-like systems, Windows uses other libraries. It was decided that
+the `UCRT` library would be used for Window's low level operations linking, because it uses the same api as `libc`. This
+means the same set of stubs can be used for both platforms, and the same S++ code can be used on both platforms.
+
+## `libc` stubs:
+
+```
+mod ffi::spp_libc::_stub
+
+# Memory allocation
+fun malloc[T](size: USize) -> Arr[T] { }
+fun calloc[T](num: USize, size: USize) -> Arr[T] { }
+fun realloc[T](ptr: Arr[T], size: USize) -> Arr[T] { }
+fun free[T](ptr: Arr[T]) -> Void { }
+
+# Memory manipulation
+fun memcpy[T](dest: &mut Arr[T], src: &Arr[T], size: USize) -> Void { }
+fun memset[T](dest: &mut Arr[T], value: T, size: USize) -> Void { }
+fun memcmp[T](ptr1: &Arr[T], ptr2: &Arr[T], size: USize) -> I32 { }
+fun memmove[T](dest: &mut Arr[T], src: &Arr[T], size: USize) -> Void { }
+
+# File operations
+fun fopen(path: Arr[U8], modes: Arr[U8]) -> File { }
+fun fclose(stream: File) -> U32 { }
+fun fread[T](ptr: &mut Att[T], size: USize, num: USize, stream: File) -> USize { }
+fun fwrite[T](ptr: &Att[T], size: USize, num: USize, stream: File) -> USize { }
+fun fseek(stream: File, offset: I64, origin: I32) -> I32 { }
+fun ftell(stream: File) -> I64 { }
+
+```

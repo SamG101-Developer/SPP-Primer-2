@@ -67,7 +67,7 @@ core layer. The foundation layer includes:
 
 - **Strings**: The `Str` class is the string class in the foundation layer. It also has a `Backend` generic type
   parameter that provides the core functionality of the string, such as `RopeStr` or `VecStr`. The `Str` class's more
-  comprehensive methods will in turn call teh fixed set of backend methods.
+  comprehensive methods will in turn call the fixed set of backend methods.
 
 - **Iterators**: The `IterMov`, `IterMut`, `IterRef` class is the iterator class in the foundation layer. Each iterator
   class superimposes the corresponding generator class, allowing a yield-based approach to iteration (internal

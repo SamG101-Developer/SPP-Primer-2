@@ -6,30 +6,30 @@
 
 **Primary Expressions**
 
-1. Literals
-2. [](7-3-Object-Initialization.md)
-3. Lambda Expressions
-4. Parenthesized Expressions
-5. Identifiers
-6. [](3-6-Case-Expressions.md)
-7. [](3-7-Loop-Expressions.md)
-8. [](3-8-With-Expressions.md)
-9. `self` Expressions
-10. `gen` Expressions
-11. Anonymous Scope
-12. Token Expression
+- Literals
+- [](7-3-Object-Initialization.md)
+- Lambda Expressions
+- Parenthesized Expressions
+- Identifiers
+- [](3-6-Case-Expressions.md)
+- [](3-7-Loop-Expressions.md)
+- [](3-8-With-Expressions.md)
+- `self` Expressions
+- `gen` Expressions
+- Anonymous Scope
+- Token Expression
 
 **Binary Expressions**
 
-1. Binary Expressions
+- [](3-13-Binary-Expressions.md)
 
 **Unary Expressions**
 
-1. `async` Expression
+- `async` Expression
 
 **Postfix Expressions**
 
-1. Postfix Function Calls
-2. Postfix Member Access
-3. Postfix Early Return
-4. Postfix Logical Not
+- Postfix Function Calls
+- Postfix Member Access
+- Postfix Early Return
+- Postfix Logical Not

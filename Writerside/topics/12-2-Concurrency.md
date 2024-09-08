@@ -102,7 +102,7 @@ entirety of the coroutine; the coroutine may be given a borrow, suspended, the b
 and then attempted to be used from the coroutine again.
 
 To prevent this, [pinning](11-5-Pinning.md) is used; every value that is borrowed from into a coroutine must be pinned,
-using the `pin` keyword. This tells the compiler that teh memory being borrowed from will not change location. This
+using the `pin` keyword. This tells the compiler that the memory being borrowed from will not change location. This
 prevents any moves or partial moves, ensuring the borrow remains valid. A pinned value being used inside a coroutine can
 be unpinned at a suspension point. This will invalidate the coroutine, by marking it as "moved", and it will be unusable
 from that point onwards.
@@ -138,7 +138,7 @@ is converted to:
 ```
 cor coroutine_4() -> GenMov[Gen=BigInt] {
     let inner = coroutine_3()
-    loop case inner.next() then is Some(value) {
+    loop inner.next() is Some(value) {
         gen value
     }
     gen 4

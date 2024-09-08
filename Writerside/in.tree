@@ -24,6 +24,7 @@
         <toc-element topic="3-6-Case-Expressions.md"/>
         <toc-element topic="3-7-Loop-Expressions.md"/>
         <toc-element topic="3-8-With-Expressions.md"/>
+        <toc-element topic="3-13-Binary-Expressions.md"/>
     </toc-element>
     <toc-element topic="4-Statements.md">
         <toc-element topic="4-1-Variables.md"/>
