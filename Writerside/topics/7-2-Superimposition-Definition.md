@@ -69,4 +69,43 @@ coupling between classes, and a more organized way to manage inheritance.
 
 The [methods](#) and [inheritance](#) sections provide more detail on how superimposition can be used.
 
-[//]: # (TODO: Add links to methods and inheritance sections)
+## Superimposing generic variants of the same class
+
+A generic class can be superimposed multiple times, with different generic arguments. If these classes contain
+attributes, then there will be multiple attributes with the same name in the class. This is not allowed, and a compile
+time error will be thrown.
+
+When instantiating an object, only stateful superclasses must be provided. If there is a generic superclass,
+say `BaseType[T]`, then the `BaseType` part of the `sup=` argument (of any generic substitution) will be the match for
+this superclass.
+
+This works because if `BaseType` has attributes, then `BaseType[U32]` and `Baseype[U64]` can't both be superimposed over
+a type, and if they don't have attributes, then they aren't required as `sup=` arguments.
+
+Whilst this does potentially reduce the expressiveness of the language, it also confines the language to a more
+predictable and understandable state.
+
+## Superimposition Generic Constraints
+
+Combining generics with superimposition creates a number of problems, requiring certain restrictions to be in place such
+that the generic types can be correctly inferred. The following rules must be followed when using generics with
+superimposition:
+
+1. **Unconstrained generics**: Every generic parameter provided to the `sup` block, must either exist as an argument to
+   the type being superimposed over, or the superclass if the `sup` block is an inheritance block.
+2. **Unfillable generics**: For inheritance based superimposition blocks, the generics to the superclass must also be
+   used as generic arguments in the type being superimposed over. This is because there is otherwise no way for the
+   compiler to know which types should be used as generics.
+
+Point 2 is a bit more complex: here is an example of unfillable generics:
+
+```
+cls BaseClass[T] { }
+
+cls DerivedClass[A] { }
+
+sup [Gen1, Gen2] BaseClass[Gen1] on DerivedClass[Gen2] { }
+```
+
+This would mean that `BaseClass[EverySingleTypeThatExists]` would have to be superimposed over `DerivedClass[Gen2]`.
+Instead, either the same type must be used for both generics, or a fixed type can be used as a generic argument too.
