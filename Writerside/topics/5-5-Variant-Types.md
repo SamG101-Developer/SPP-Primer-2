@@ -1,4 +1,4 @@
-# 5.5. Union Types
+# 5.5. Variant Types
 
 <primary-label ref="header-label"/>
 
@@ -6,35 +6,31 @@
 
 <secondary-label ref="doc-subj-update"/>
 
-## Union types
+## Variant types
 
-S++ unions, also referred to as _variants_, are a runtime-tagged type with no syntactic wrapping. This makes them
-considerable cleaner that Rust's ADTs. They map to the `std::Var` type, with the generic arguments making up the types
-inside the variant. Variants are defined as follows:
+S++ variants, are a runtime-tagged type with no syntactic wrapping. This makes them cleaner that Rust's ADTs. They map
+to the `std::Var[..Variants]` type, with the generic arguments making up the types inside the variant. Variants are
+defined as follows:
 
 ```
 use MyType = Str | U32 | Bool
 ```
 
-This creates the object `MyType` with the type `Var[Str, U32, Bool]`.
-
-### Common Uses
-
-Common uses of the variant type include the `Opt[Type]` type, and the `Res[Pass, Fail]` type.
+This creates the object `MyType` with the type `std::Var[Str, U32, Bool]`.
 
 ## Special Behaviour
 
 ### Construction
 
-Variants can be constructed by using the `Var` constructor. This constructor takes a single argument, which is a value
-that is one of the types in the variant. This will wrap the type inside the variant.
-
-Raw variant construction:
-
-:
-```
-let a = Var[Str, U32, Bool]("hello")
-```
+> **Todo**: There is currently no way to use a `std::Var` constructor, because the internal value is one of the
+> generics. It might be a future feature to allow a variable to be one generic type from a variadic generic argument. This
+> supersedes the need for variant types however, so currently this is unknown. At the moment, define the variable as a
+> variant type, and separately assign the internal value of a composite type.
+> ```
+> let a: std::Var[Str, U32, Bool]
+> a = "hello"
+> ```
+> {style="warning"}
 
 Aliased variant construction:
 

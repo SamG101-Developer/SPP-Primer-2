@@ -17,7 +17,7 @@ important.
 - [](5-2-Arrays.md)
 - [](5-3-Tuples.md)
 - [](5-4-Function-Types.md)
-- [](5-5-Union-Types.md)
+- [](5-5-Variant-Types.md)
 - Self type
 - Intersection Types
 - Residual Types

@@ -12,4 +12,4 @@
 - [](8-4-Function-Recursion.md)
 - [](8-5-Asynchronous-Functions.md)
 - [](8-6-Partial-Functions.md)
-- Closure Functions
+- [](8-7-Closures.md)

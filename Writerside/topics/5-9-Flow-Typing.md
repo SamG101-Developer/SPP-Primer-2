@@ -18,11 +18,11 @@ variable is treated as a variant of all the types that were not checked for.
 ```
 let val = function_returning_option()  # Returns an Opt[Bool]
 case val then
-    is Bool { std::print("Value present") }
-    is None { std::print("No value") }
+    is Some(val) { std::print("Value present", val) }
+    is None() { std::print("No value") }
     
 let val = function_returning_result()  # Returns a Ret[Str, Err]
 case val then
-    is Str { std::print("Pass") }
-    is Err { std::print("Fail") }
+    is Pass(msg) { std::print("Pass", msg) }
+    is Fail(err) { std::print("Fail", err) }
 ```

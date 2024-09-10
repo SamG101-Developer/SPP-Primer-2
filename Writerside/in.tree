@@ -35,7 +35,7 @@
         <toc-element topic="5-2-Arrays.md"/>
         <toc-element topic="5-3-Tuples.md"/>
         <toc-element topic="5-4-Function-Types.md"/>
-        <toc-element topic="5-5-Union-Types.md"/>
+        <toc-element topic="5-5-Variant-Types.md"/>
         <toc-element topic="5-6-Self-Type.md"/>
         <toc-element topic="5-9-Flow-Typing.md"/>
         <toc-element topic="5-10-Type-Shorthands.md"/>
@@ -56,6 +56,7 @@
         <toc-element topic="8-4-Function-Recursion.md"/>
         <toc-element topic="8-5-Asynchronous-Functions.md"/>
         <toc-element topic="8-6-Partial-Functions.md"/>
+        <toc-element topic="8-7-Closures.md"/>
     </toc-element>
     <toc-element topic="9-Generics.md">
         <toc-element topic="9-1-Generics-Inference.md">

@@ -61,6 +61,10 @@ are:
 </tab>
 </tabs>
 
+Not using a postfix literal will default the number to either `BigInt` or `BigDec` depending on the presence of a
+decimal point. The `BigInt` type is used for arbitrary precision integers, and the `BigDec` type is used for arbitrary
+precision floating point numbers. These types are compiler-known, but are not mapped to LLVM types.
+
 ## Boolean type
 
 The `std::Bool` type is used to represent the type of either `true` or `false`. Both `true` and `false` are

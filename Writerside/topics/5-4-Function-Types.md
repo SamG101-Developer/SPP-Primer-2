@@ -13,7 +13,7 @@ types. Each type represents the way in which the function captures the environme
 borrowing it mutably, or borrowing it immutably. There is no concept of a "function pointer".
 
 Each function type contains generic arguments pertaining to the function's signature. For example, a function immutably
-borrows its environment, takes a `Str` and returns a `Void` would have the signature `FunRef[Void, (Str)]`.
+borrows its environment, takes a `Str` and returns a `Void` would have the signature `FunRef[Ret=Void, In=(Str)]`.
 
 ## `FunMov`
 
