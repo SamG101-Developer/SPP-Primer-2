@@ -32,7 +32,7 @@ borrow again, leading to undefined behaviour.
 
 Therefore, a mechanism is required to ensure that the borrow remains valid for the duration of the asynchronous function
 or coroutines. The key issue is that the exit point for these calls is non-deterministic, meaning standard analysis
-isn't possible. This led to the introduction of pinning.
+isn't possible. The "pinning" model is used to guarantee that borrows remain valid for the duration of the call.
 
 A borrow is "pinned", if the corresponding owned object that the borrow points to is pinned. If all borrows into a
 coroutine of asynchronous function are pinned, then it is guaranteed that they are valid for the duration for the
@@ -42,13 +42,13 @@ There are a few restrictions to ensure that borrowed object's lifetimes remain v
 call or a coroutine:
 1. A borrowed value's corresponding owned object must be pinned. This ensures that the borrowed value is valid for the
    duration of the call, and the memory location it points to will not move.
-2. For an async function, an owned object cannot be unpinned, unless the future has been awaited. This ensures that
-   consuming an object only happens after it is definite that the async function has finished. If the async function is
-   never awaited, then the owned object cannot be unpinned.
-3. For a coroutine, an owned object can be unpinned, but this invalidates the coroutines, and it can no longer be used.
-   This allows for more flexibility, whilst still enforcing safety.
-4. A coroutine object or a future object is pinned, if any arguments into the call are pinned. This mens that for
-   example a coroutine object cannot be returned into an outer frame whilst borrowing an object from the current frame.
+2. Unpinning a value that currently has a pin target (coroutine or async function call) will result in the pin target
+   being inaccessible it will be marked as moved and therefore unusable.
+3. For a function to return, all pins must be resolved. This prevents a coroutine from being returned, when it is
+   borrowing from a value inside the function.
+
+On top of variable being able to be pinned, parts of objects can be pinned too. This allows for a more fine-grained
+control of what can't move. This is the same as borrowing part of an object for a function call.
 
 As with every branch of a `case` expression having to leave symbols in the same memory state regarding ownership, the
 same applies to the "pin" state of symbols. This ensures uniform behaviour after the `case` expression has been
@@ -60,7 +60,7 @@ In the following example, a coroutine is defined that borrows a value from the s
 passed to the coroutine. The coroutine can then use the borrowed value, as it is guaranteed to not move in memory.
 
 ```
-cor test_coroutine(a: &Str) -> Str {
+cor test_coroutine(a: &Str) -> GenMov[Gen=Str] {
     len = a.length()
     
     gen "a" * len
