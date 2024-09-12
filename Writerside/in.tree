@@ -25,6 +25,7 @@
         <toc-element topic="3-7-Loop-Expressions.md"/>
         <toc-element topic="3-8-With-Expressions.md"/>
         <toc-element topic="3-13-Binary-Expressions.md"/>
+        <toc-element topic="3-16-Postfix-Member-Access.md"/>
     </toc-element>
     <toc-element topic="4-Statements.md">
         <toc-element topic="4-1-Variables.md"/>
@@ -47,6 +48,8 @@
         <toc-element topic="7-1-Class-Definition.md"/>
         <toc-element topic="7-2-Superimposition-Definition.md"/>
         <toc-element topic="7-3-Object-Initialization.md"/>
+        <toc-element topic="7-5-Inheritance-Polymorphism.md"/>
+        <toc-element topic="7-6-Encapsulation-Access-Modifiers.md"/>
     </toc-element>
     <toc-element topic="8-Functions.md">
         <toc-element topic="8-1-Function-Definition.md"/>
@@ -84,7 +87,7 @@
         <toc-element topic="13-2-FFI.md"/>
         <toc-element topic="13-3-Low-Level-Operations.md"/>
         <toc-element topic="13-4-Annotations.md"/>
-        <toc-element topic="13-4-Annotations-v2.md"/>
+        <toc-element topic="13-5-LLVM-Generation.md"/>
     </toc-element>
     <toc-element topic="14-STL.md">
         <toc-element topic="14-1-STL.md"/>

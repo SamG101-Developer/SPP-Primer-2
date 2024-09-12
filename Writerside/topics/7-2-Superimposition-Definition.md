@@ -72,8 +72,9 @@ The [methods](#) and [inheritance](#) sections provide more detail on how superi
 ## Superimposing generic variants of the same class
 
 A generic class can be superimposed multiple times, with different generic arguments. If these classes contain
-attributes, then there will be multiple attributes with the same name in the class. This is not allowed, and a compile
-time error will be thrown.
+attributes, then there will be multiple attributes with the same name in the class. If the subclass doesn't override the
+attribute too, then accessing the attribute is ambiguous; there is no way to know which superclasses attribute is
+desired. The resolving syntax is discussed in [postfix member access]().
 
 When instantiating an object, only stateful superclasses must be provided. If there is a generic superclass,
 say `BaseType[T]`, then the `BaseType` part of the `sup=` argument (of any generic substitution) will be the match for

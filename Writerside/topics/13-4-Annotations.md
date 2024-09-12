@@ -6,65 +6,75 @@
 
 ## Annotations
 
-Annotations can be provided to modules, classes and functions. They will only be enabled once the compiler is
-self-hosting. This is because they work like a mix of Python decorators, and Rust attributes. They are defined as
-functions that accept an AST, and allow modification of it. A new layer in the compiler will be added for it - before
-the preprocessing stage.
+S++ allows annotations of modules, classes, methods, and typedefs. Custom annotations can be applied to methods and
+classes only.
 
-Annotations are method calls. They must always include `()` even if there are no arguments. This is different from
-Python, which doesn't require the `()` on decorators.
+### Builtin Annotations
 
-This is a list of compiler-builtin annotations, and the context they are used in:
+There are a number of builtin annotations that either map to llvm function attributes for compiler optimizations, or
+provide further information to the S++ compiler.
 
-| Annotation                             | Module Context | Class Context | Function Context |
-|----------------------------------------|----------------|---------------|------------------|
-| `@no_std()`                            | ✓              | ✕             | ✕                |
-| `@allow_unstable(..features)`          | ✓              | ✕             | ✕                |
-| `@public(module="*")`                  | ✓              | ✓             | ✓                |
-| `@protected()`                         | ✓              | ✓             | ✓                |
-| `@private()`                           | ✓              | ✓             | ✓                |
-| `@final()`                             | ✕              | ✓             | ✓                |
-| `@abstractmethod()`                    | ✕              | ✕             | ✓                |
-| `@virtualmethod()`                     | ✕              | ✕             | ✓                |
-| `@deprecated(message="")`              | ✓              | ✓             | ✓                |
-| `@obsolete(message="")`                | ✓              | ✓             | ✓                |
-| `@warning(message="")`                 | ✓              | ✓             | ✓                |
-| `@inline(level=InlineLevel::Optimize)` | ✕              | ✕             | ✓                |
-| `@rare()`                              | ✕              | ✕             | ✓                |                                     
+#### LLVM Annotations
+- **`@inline(how: InlineLevel)`**: Maps to one of the `llvm` inline function attributes. This attribute
+  specifies how the function should be inlined. The `how` argument must be one
+  from `InlineLevel::None`, `InlineLevel::Optimize`, or
+  `InlineLevel::Always`, which map to `noinline`, `inlinehint`, and `alwaysinline` respectively.
+- **`@cold()`**: Maps to the `llvm::cold` function attribute. This attribute is used to specify that the function
+  is rarely executed.
+- **`@hot()`**: Maps to the `llvm::hot` function attribute. This attribute is used to specify that the function
+  is frequently executed.
 
-## Custom Annotations
+#### Main Module Annotations
+- **`@no_std()`**: This marks a project as not using the `std` library. Only the `main.spp` file can use this
+  annotation, and it applies to the entire project.
+- **`@use_unstable(feature: Str)`**: This allows an unstable feature to be used in the project. Again, it can only be
+  used in the `main.pp` file, and it falls through to all modules.
 
-Custom annotations can be provided too. Their syntax is a function, whose first parameter is either
-a `&mut ModulePrototypeAst`, `&mut ClassPrototypeAst`, or `&mut FunctionPrototypeAst`, followed by any other arguments.
-The function can be defined in any namespace, as annotations can be postfix-type-accessed, ie `@std::some_annotation()`.
+#### Encapsulation Annotations
+- **`@public(module: Str)`**: This makes a method, class or module public. This maps to both the visibility and linkage
+  attributes in LLVM, as-well as symbol access in S++. A module can be made public to certain other modules with
+  the `module` argument.
+- **`@protected()/@private`**: This marks a method, class, or module as private/protected. Protected modules are only
+  accessible to this module and submodules, where-as private modules can only be accessed by same-namespace modules.
+  Linkage and visibility are set accordingly.
+- **`@friend[..Friends]()`**: This allows a number of types to be marked as friends of either a module, class, or
+  function.
 
-## Module annotations
+#### Compiler Output Annotations
+- **`@deprecated(message: Str)`**: This marks a method, class, or module as deprecated. The `message` argument is a
+  string that will be printed when the deprecated item is used.
+- **`@obsolete(message: Str)`**: This marks a method, class, or module as obsolete. The `message` argument is a
+  string that will be printed when the obsolete item is used.
+- **`@warning(message: Str)`**: This marks a method, class, or module as having a warning. The `message` argument is a
+  string that will be printed when the warning item is used.
 
-Module annotations must be placed before the `mod` keyword. They are defined as functions that accept
-an `&mut ModulePrototypeAst`, and any following arguments.
+#### Method Annotations
+- **`@abstractmethod()`**: This marks a method as abstract, and must be overridden in any subclasses. It also makes the
+  containing class abstract, and therefore non-instantiable.
+- **`@virtualmethod()`**: This marks a method as virtual, and can be overridden in direct subclasses. It must be
+  re-marked as `@virtualmethod` for the next layer of subclasses to be able to override it again.
 
-```
-@std::allow_unstable("allocator")
-@std::allow_unstable("generator")
-mod my_library::my_module
-```
+### Custom Annotations
 
-```
-fun allow_unstable(ast: &mut ModulePrototypeAst, ..names: Str) -> Void { }
-```
+Custom annotations work like Python annotations. They take a function or a class, and can run code before or after the
+function or class is defined. Custom annotations are defined as functions too:
 
-## Class annotations
-
-Class annotations must be placed before the `cls` keyword. They are defined as functions that accept
-an `&mut ClassPrototypeAst`, and any following arguments.
-
-```
-@std::public(module="testing")
-@std::final()
-cls MyType
-```
+#### Custom Function Annotations
 
 ```
-fun public(ast: &mut ClassPrototypeAst, module: Str) -> Void { }
-fun final(ast: &mut ClassPrototypeAst) -> Void { }
+@my_decorator(message="Debug")
+fun my_decorated_function(a: BigInt, b: BigInt) -> BigInt {
+    std::print("Hello, World!")
+    ret a + b
+}
+
+fun my_decorator[Ret, In](function: FunRef[Ret, In], name: Str) -> FunRef[Ret, In] {
+    fun wrapper(args: In) -> Ret {
+        std::print("Decorating function: " + message)
+        ret function(..args)
+    }
+    ret wrapper
+}
 ```
+
+This transforms `my_decorated_function(100, 200)` to `my_decorator(my_decorated_function, message="Debug")(100, 200)`.

@@ -10,5 +10,5 @@
 - [](7-2-Superimposition-Definition.md)
 - [](7-3-Object-Initialization.md)
 - Methods
-- Inheritance & Polymorphism
-- Encapsulation & Access Modifiers
+- [](7-5-Inheritance-Polymorphism.md)
+- [](7-6-Encapsulation-Access-Modifiers.md)

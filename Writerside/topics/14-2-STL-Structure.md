@@ -8,9 +8,8 @@
 
 The STL is split into 4 layers:
 1. Core Layer
-2. Platform Abstraction Layer
-3. Foundation Layer
-4. Extended Layer
+2. Foundation Layer
+3. Extended Layer
 
 ### Core Layer
 
@@ -35,31 +34,15 @@ stateless functionality classes; aborting and concurrency primitives:
   especially, and to opt out of move-only semantics where required.
 
 - **Atomic Primitives**: The `Atomic[T]` type is required for atomic operations. Other threading primitives are in the
-  Platform Abstraction Layer. The `Volatile[T]` type is also required for volatile operations.
+  Foundation Layer. The `Volatile[T]` type is also required for volatile operations.
 
 - **Asynchronous Primitives**: The `Fut[T]` type is required for asynchronous operations, and as asynchronous functions
   are first-class, the `Fut` type is required in the core layer.
 
-### Platform Abstraction Layer
-
-The platform abstraction provides platform-specific functionality over a uniform set of features, allowing the same code
-to be run on different platforms. This means that the core layer can be platform-agnostic, and the platform abstraction
-layer can be used to provide the necessary platform-specific functionality. This includes:
-
-- **Platform Specific IO**: Console, file and networking IO are all provided in the platform abstraction layer. These io
-  modules use conditional compilation to provide the correct functionality for each platform.
-
-- **Threading Primitives**: The `Mutex`, `CondVar`, and `Thread` classes are all provided in the platform abstraction
-  layer. They hook into the platform-specific threading API to utilize the correct threading primitives.
-
-- **Time**: The `Time` class is provided in the platform abstraction layer. It provides a way to get the current time,
-  and to sleep for a certain amount of time.
-
 ### Foundation Layer
 
 The foundation layer provides the basic building blocks for the STL. This includes the `Str` class, all the containers,
-and other basic structures. The foundation layer doesn't typically use the platform abstraction layer, but does use the
-core layer. The foundation layer includes:
+and other basic structures. The foundation layer uses the core layer, and includes:
 
 - **Containers**: There is a wide range of containers in the foundation layer, including the commonly
   used `Vec`, `Map` and `Set` classes. Classes such as the `Stack` and `Queue` classes have a `Backend` generic type
@@ -87,3 +70,7 @@ There are a number of libraries in the extended layer, under `std::libs::httplib
 that `use std::libs::httplib` can be used to do `httplib::get` for example. This allows the libraries to be used in a
 modular way, with clear imports to show it belongs to the STL.
 
+## Design Decisions
+
+1. There was originally a platform abstraction layer between the core and foundation layers, but this was removed as it
+   was found to be unnecessary; the `libc` library handles the cross-platform behaviour of low level operations.
