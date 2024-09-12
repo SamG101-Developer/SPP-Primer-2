@@ -67,13 +67,13 @@ To copy a value, the `Copy` type must be superimposed on the type. This allows t
 where a move would have otherwise happened. This is superimposed on the numeric and boolean classes. As the `Copy` type
 is stateless, instead of using `sup Copy on T { }`, it is fine to use `@inherit[Copy]()`.
 
-The default `Copy` functionality is to recursively copy all attributes of the object. Therefore, it requires all the
-attributes' types to also superimpose the `Copy` type. As this is a compiler known class, special checks can be done
-with it.
+The `Copy` type doesn't require any attribute type's classes to also superimpose `Copy`. This is because the copy
+behaviour duplicates the source part of the memory, and allows it to be accessible via the correct type. This heavily
+simplified the logic required for copying.
 
 For a customized copying behaviour, the `Clone` type can be superimposed on the type. This allows the user to define
 their own _cloning_ behaviour, by overriding the `Clone::clone` method. The `Clone` and `Copy` types are completely
-independent, and don't require each other by default.
+independent, and don't require each other.
 
 **Example**
 

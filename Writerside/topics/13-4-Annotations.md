@@ -77,4 +77,4 @@ fun my_decorator[Ret, In](function: FunRef[Ret, In], name: Str) -> FunRef[Ret, I
 }
 ```
 
-This transforms `my_decorated_function(100, 200)` to `my_decorator(my_decorated_function, message="Debug")(100, 200)`.
+This transforms `my_decorated_function(100, 200)` to `my_decorator(my_decorated_function, message="Debug")((100, 200))`.
