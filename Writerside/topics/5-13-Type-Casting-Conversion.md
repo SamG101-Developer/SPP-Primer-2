@@ -36,11 +36,11 @@ cls Foo { }
 cls Bar { }
 cls Baz { }
 
-sup From[Bar] on Foo {
+sup Foo ext From[Bar] {
     fun from(that: Self::Origin) -> Self { ... }
 }
 
-sup From[Baz] on Foo {
+sup Foo ext From[Baz] {
     fun from(that: Self::Origin) -> Self { ... }
 }
 

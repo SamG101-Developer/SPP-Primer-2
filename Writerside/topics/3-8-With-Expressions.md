@@ -60,7 +60,7 @@ cls Mutex[T] {
     value: T
 }
 
-sup [T] CtxRef[Out=T] on Mutex[T] {
+sup [T] Mutex[T] ext CtxRef[Out=T] {
     fun enter(&self) -> Self::Out {
         print("Locking mutex")
         ret self.value

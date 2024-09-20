@@ -26,8 +26,8 @@ cls B {
 
 
 cls C {}
-sup A on C {}
-sup B on C {}
+sup C ext A {}
+sup C ext B {}
 
 
 fun main() -> Void {

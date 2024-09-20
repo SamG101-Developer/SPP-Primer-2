@@ -73,8 +73,8 @@ same length, to make the code more aligned.
 : - Define a regular [superimposition](7-2-Superimposition-Definition.md) block (behaviour: methods, typedefs)
 : - Define an inheritance superimposition block
 : - Pass superclass instances to [object initializations](7-3-Object-Initialization.md).
-: `on`
-    : - Superimpose a class "on" another class.
+: `ext`
+    : - Superimpose a class by extending another class.
 
 `fun`
 : - Define a [subroutine](8-1-Function-Definition.md) function.

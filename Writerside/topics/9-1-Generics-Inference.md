@@ -56,7 +56,7 @@ following table shows the places where generics can be inferred:
 <td>Superimposition</td>
 <td>
 
-- No inference
+- Type being superimposed over
 </td>
 </tr>
 
@@ -126,3 +126,17 @@ let v = Vector(x=1, y=2)
 :
 This example shows an object initialization setting `x` and `y` to `BigNum` types, allowing `T` to be inferred
 as `BigNum`.
+
+### Superimposition Example
+
+**Inferable Superimposition Generics**
+
+:
+```
+sup [T] SomeClass[T] { ... }
+```
+
+:
+The generic argument `T` is inferred from a type that's being superimposed over. For example, when `SomeClass[Str]` is
+generated, `T` is inferred as `Str` for this superimposition. Superimpositions are re-generated / substituted for each
+generically-substituted type that they are superimposed over.

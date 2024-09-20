@@ -15,8 +15,8 @@
   square brackets. **None** of these generics can be "inferable". See the generics section for more information about
   the order they must be defined in.
 
-- **Super class + on keyword**: If the superimposition is an inheritance superimposition, then the `SuperClass on`
-  syntax is required. This tells the compiler which superclass to superimpose over the type. If the superimposition is
+- **Super class + extend keyword**: If the superimposition is an inheritance superimposition, then the `SuperClass ext`
+  syntax is required. This tells the compiler which superclass is being extended by the type. If the superimposition is
   a normal superimposition (methods, typedefs), then this part is not required.
 
 - **Type identifier**: The name of the type being superimposed over, following
@@ -53,8 +53,8 @@ Inheritance superimposition:
 
 :
 ```
-sup MyType on OtherType {
-    fun method(&self) -> Void { }  # Override method
+sup OtherType ext MyType {
+    fun method(&self) -> Void { }  # Override method MyType::method()
 }
 ```
 
@@ -88,25 +88,9 @@ predictable and understandable state.
 
 ## Superimposition Generic Constraints
 
-Combining generics with superimposition creates a number of problems, requiring certain restrictions to be in place such
-that the generic types can be correctly inferred. The following rules must be followed when using generics with
+Combining generics with superimposition can create some problems, requiring certain restrictions to be in place such
+that the generic types can be correctly inferred. The following rule must be followed when using generics with
 superimposition:
 
-1. **Unconstrained generics**: Every generic parameter provided to the `sup` block, must either exist as an argument to
-   the type being superimposed over, or the superclass if the `sup` block is an inheritance block.
-2. **Unfillable generics**: For inheritance based superimposition blocks, the generics to the superclass must also be
-   used as generic arguments in the type being superimposed over. This is because there is otherwise no way for the
-   compiler to know which types should be used as generics.
-
-Point 2 is a bit more complex: here is an example of unfillable generics:
-
-```
-cls BaseClass[T] { }
-
-cls DerivedClass[A] { }
-
-sup [Gen1, Gen2] BaseClass[Gen1] on DerivedClass[Gen2] { }
-```
-
-This would mean that `BaseClass[EverySingleTypeThatExists]` would have to be superimposed over `DerivedClass[Gen2]`.
-Instead, either the same type must be used for both generics, or a fixed type can be used as a generic argument too.
+1. **Unconstrained generics**: Every generic parameter provided to the `sup` block, must exist as an argument to the
+   type being superimposed over.

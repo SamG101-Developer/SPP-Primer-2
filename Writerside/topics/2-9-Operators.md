@@ -75,9 +75,9 @@ cls Vec3D {
     z: U32
 }
 
-sup std::ops::Add on Vec3D {
-    fun add(self, that: Self) -> Self {
-        ret Self(
+sup std::ops::Add[Rhs=Vec3D] on Vec3D {
+    fun add(self, that: Vec3D) -> Vec3D {
+        ret Vec3D(
             x=self.x + that.x,
             y=self.y + that.y,
             z=self.z + that.z)

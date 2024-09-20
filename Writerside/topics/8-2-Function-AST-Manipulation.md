@@ -19,13 +19,13 @@ fun foo(a: U32) -> Void { std::print("Num") }
 ```
 cls __Mock_foo { }
 
-sup FunRef[Void, (Str)] on __Mock_foo {
+sup __Mock_foo ext FunRef[Void, (Str)] {
     fun call_ref(&self, a: Str) -> Void {
         std::print("Str")
     }
 }
 
-sup FunRef[Void, (U32)] on __Mock_foo {
+sup __Mock_foo ext FunRef[Void, (U32)] {
     fun call_ref(&self, a: U32) -> Void {
         std::print("Num")
     }

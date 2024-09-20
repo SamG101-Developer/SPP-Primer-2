@@ -91,14 +91,13 @@ arguments to be supplied to the function too, meaning that partial functions wit
 can be inside the tuple, as this operation simply destructures the tuple into all of its individual components.
 
 ```
-fun function_1(x: (U8, U8, U8)) -> U8 {
-    let (a, b, c) = x
+fun function_1(x: Bool, a: U32, b: U32, c: U32, y: Bool) -> U32 {
     return a + b + c
 }
 
 fun main() {
     let tuple = (1, 2, 3)
-    let result = function_1(..tuple)
+    let result = function_1(true, ..tuple, false)
 }
 ```
 

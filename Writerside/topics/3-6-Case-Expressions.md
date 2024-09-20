@@ -69,6 +69,21 @@ else { "hello stranger" }
 > regular object destructuring rules.
 > {style="note"}
 
+> The `is` destructure also allows for variant types to be directly considered, combined with flow typing. This is
+> shown in the below example.
+> {style="note"}
+
+### Pattern Matching (Object Destructure + Variant Types)
+
+Because type-comparisons allow a composite type to be assigned to a variant type container, this also works for the type
+comparisons of destructuring. That is, a variant type can be destructured by its composite types.
+
+```
+case optional_string then
+    is Some(val) { "string is ${val}" }
+    is None { "string is None" }
+```
+
 ### Pattern Matching (Tuple Destructure)
 
 Pattern matching can also be used to destructure tuples. There are cases where destructuring a tuple is the same as
@@ -83,23 +98,6 @@ else { "tuple is something else" }
 ```
 
 > The `..` token can be used to skip the rest of the tuple. This follows regular tuple destructuring rules.
-> {style="note"}
-
-### Pattern Matching (Type Destructure)
-
-Pattern matching can also be used to destructure union types into composite types. This allows flow typing to be used in
-the inner blocks, allowing for less convoluted type conversions. If multiple type patterns are provided,
-like `is Str, U32`, then the flow typing will be the refined union of the types in the pattern. Both these types must be
-composites of the overall union type being inspected.
-
-```
-case value then
-    is Str { "value is Str" }
-    is U32 { "value is U32" }
-else { "value is something else" }
-```
-
-> The type in each pattern must be one of the types forming the union type of `value`.
 > {style="note"}
 
 ### Binding (Object Destructure)
@@ -146,6 +144,10 @@ else { "hello stranger" }
 
 > Note the use of the `,` token rather than the traditional `|` token for multiple patterns. See the design decisions
 > for more information.
+> {style="warning"}
+
+> This is only allowed for non-`is` destructures, so that only 1 set of variables are considered. This might expand into
+> allowing multiple patterns as long as the same variables are introduced by each pattern.
 > {style="warning"}
 
 ### Nested destructuring

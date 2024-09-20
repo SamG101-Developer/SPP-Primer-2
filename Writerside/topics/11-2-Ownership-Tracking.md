@@ -65,15 +65,15 @@ non-initialized state.
 
 To copy a value, the `Copy` type must be superimposed on the type. This allows the value to be copied in all instances
 where a move would have otherwise happened. This is superimposed on the numeric and boolean classes. As the `Copy` type
-is stateless, instead of using `sup Copy on T { }`, it is fine to use `@inherit[Copy]()`.
+is stateless, instead of using `sup T ext Copy { }`, it is fine to use `@inherit[Copy]()`.
 
 The `Copy` type doesn't require any attribute type's classes to also superimpose `Copy`. This is because the copy
 behaviour duplicates the source part of the memory, and allows it to be accessible via the correct type. This heavily
 simplified the logic required for copying.
 
-For a customized copying behaviour, the `Clone` type can be superimposed on the type. This allows the user to define
-their own _cloning_ behaviour, by overriding the `Clone::clone` method. The `Clone` and `Copy` types are completely
-independent, and don't require each other.
+For a customized copying behaviour, the type can extend the `Clone` type. This allows the user to define their own
+_cloning_ behaviour, by overriding the `Clone::clone` method. The `Clone` and `Copy` types are completely independent,
+and don't require each other.
 
 **Example**
 

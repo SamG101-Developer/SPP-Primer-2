@@ -22,7 +22,7 @@ sup BaseClass {
     fun abstract_method(&self) -> Void { }
 }
 
-sup BaseClass on DerivedClass {
+sup DerivedClass ext BaseClass {
     fun method(&self) -> Void { }   
     fun abstract_method(&self) -> Void { }
 }
