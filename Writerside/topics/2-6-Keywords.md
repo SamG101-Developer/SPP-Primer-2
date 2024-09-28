@@ -46,14 +46,33 @@ same length, to make the code more aligned.
 - `and`
 - `or`
 - `not`
-- `on`
+- `ext`
 - `in`
 - `then`
 - `async`
 
 {columns="4"}
 
-## Likely future keywords
+## Builtin Annotations
+
+- `@inline`
+- `@cold`
+- `@hot`
+- `@no_std`
+- `@use_unstable`
+- `@public`
+- `@protected`
+- `@private`
+- `@friend`
+- `@deprecated`
+- `@obsolete`
+- `@warning`
+- `@abstract_method`
+- `@virtual_method`
+
+{columns="4"}
+
+## Likely Future Keywords
 
 - `type`
 
@@ -179,3 +198,7 @@ same length, to make the code more aligned.
 
 `else`
 : - Define a "default" value for object initializations.
+
+
+## Annotation Descriptions
+See the section on [annotations](13-4-Annotations.md) for more information on annotations.

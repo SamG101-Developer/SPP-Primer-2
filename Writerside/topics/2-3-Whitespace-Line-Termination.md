@@ -2,9 +2,12 @@
 
 <primary-label ref="header-label"/>
 
-<secondary-label ref="doc-wip"/>
+<secondary-label ref="doc-complete"/>
 
 ## White Space
+
+<secondary-label ref="doc-sect-complete"/>
+<secondary-label ref="feature-frozen"/>
 
 S++ uses spaces (ASCII 32) exclusively for whitespace. Using any other space-like character, such as the tab character
 (ASCII 9), will result in a compile time lexical error. This enforces uniformity in code formatting across all S++
@@ -18,5 +21,9 @@ the [style guide](15-Style-Guide.md) for more information recommendations on whi
 
 ## Line Termination
 
+<secondary-label ref="doc-sect-complete"/>
+<secondary-label ref="feature-frozen"/>
+
 S++ moves away from the C-family of languages that use the `;` token to terminate lines. Instead, the `\n` newline
-character is used, to provide a more readable and simpler syntax.
+character is used, to provide a more readable and simpler syntax. Newlines are ignored whilst parsing expressions, and
+are only used to separate statements.

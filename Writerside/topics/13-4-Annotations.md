@@ -31,9 +31,9 @@ provide further information to the S++ compiler.
   used in the `main.pp` file, and it falls through to all modules.
 
 #### Encapsulation Annotations
-- **`@public(module: Str)`**: This makes a method, class or module public. This maps to both the visibility and linkage
-  attributes in LLVM, as-well as symbol access in S++. A module can be made public to certain other modules with
-  the `module` argument.
+- **`@public()`**: This makes a method, class or module public. This maps to both the visibility and linkage
+  attributes in LLVM, as-well as symbol access in S++. Fine-grained control can be achieved by using `@protected` or
+  `@private`, with `@friend` to allow access to specific types.
 - **`@protected()/@private`**: This marks a method, class, or module as private/protected. Protected modules are only
   accessible to this module and submodules, where-as private modules can only be accessed by same-namespace modules.
   Linkage and visibility are set accordingly.
@@ -49,15 +49,15 @@ provide further information to the S++ compiler.
   string that will be printed when the warning item is used.
 
 #### Method Annotations
-- **`@abstractmethod()`**: This marks a method as abstract, and must be overridden in any subclasses. It also makes the
-  containing class abstract, and therefore non-instantiable.
-- **`@virtualmethod()`**: This marks a method as virtual, and can be overridden in direct subclasses. It must be
-  re-marked as `@virtualmethod` for the next layer of subclasses to be able to override it again.
+- **`@abstract_method()`**: This marks a method as abstract, and must be overridden in any subclasses. Abstract methods
+  cannot be called (overridden implementations can be called).
+- **`@virtual_method()`**: This marks a method as virtual, and can be overridden in direct subclasses. It must be
+  re-marked as `@virtual_method` for the next layer of subclasses to be able to override it again, if overridden.
 
 ### Custom Annotations
 
 Custom annotations work like Python annotations. They take a function or a class, and can run code before or after the
-function or class is defined. Custom annotations are defined as functions too:
+function is defined, or after the class is instantiated. Custom annotations are defined as functions too:
 
 #### Custom Function Annotations
 
@@ -69,12 +69,44 @@ fun my_decorated_function(a: BigInt, b: BigInt) -> BigInt {
 }
 
 fun my_decorator[Ret, In](function: FunRef[Ret, In], name: Str) -> FunRef[Ret, In] {
-    fun wrapper(args: In) -> Ret {
+    ret fun(args: In) with [function] -> Ret {
         std::print("Decorating function: " + message)
         ret function(..args)
     }
-    ret wrapper
 }
 ```
 
 This transforms `my_decorated_function(100, 200)` to `my_decorator(my_decorated_function, message="Debug")((100, 200))`.
+
+#### Custom Class Annotations
+
+<secondary-label ref="doc-sect-subj-update"/>
+
+<secondary-label ref="feature-not-impl-yet"/>
+
+<secondary-label ref="feature-subj-change"/>
+
+> **This is a work in progress feature and is subject to change.**
+> {style="warning"}
+
+Note that because generic types cannot be instantiated in S++, the class annotation must be applied to a specific type.
+This can be a superclass common to a number of classes if the state modification is common to the superclass. Because of
+this, the class must be passed to the annotation as an argument, and only post-instantiation modifications can be made.
+
+```
+@my_decorator(message="Debug")
+cls MyDecoratedClass {
+    a: BigInt
+    b: BigInt
+}
+
+
+fun my_decorator(class: MyDecoratedClass) -> MyDecoratedClass {
+    cls.a = 100
+    cls.b = 200
+    ret cls
+}
+```
+
+This transforms `MyDecoratedClass(a=100, b=200)` to `my_decorator(MyDecoratedClass, message="Debug")`.
+

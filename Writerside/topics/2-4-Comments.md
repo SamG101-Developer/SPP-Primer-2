@@ -10,8 +10,9 @@ Comments in S++ take inspiration from Python, rather than the traditional C-fami
 
 ## Types of Comments
 
-There are 2 types of comments in S++: single-line comments and multi-line comments. Single-line comments are denoted by
-a `#` character, while multi-line comments are wrapped by `##` characters.
+Single-line, multi-line, and inline comments are supported in S++. The `#` character is used for single-line comments,
+which terminate with a newline. Multi-line comments are wrapped in `##` characters, and can span multiple lines. Inline
+comments are syntactically identical to multi-line comments.
 
 ## Syntax
 
@@ -38,7 +39,9 @@ This can span multiple lines
 ##
 ```
 
-Multi-line comments can be embedded within normal code too. These are sometimes referred to as "inline-comments".
+### Inline Comments
+
+Inline comments are syntactically identical to multi-line comments, but are placed within a line of code.
 
 ```
 func(param1: ## important ## : std::Str) -> std::Void { }
