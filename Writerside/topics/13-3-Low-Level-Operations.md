@@ -42,8 +42,6 @@ errors.
 ## Example
 
 ```
-mod std::io::console
-
 fun print(string: Str) -> Res[I32, CError] {
     let arr = Arr[U8]::from(string)
     let res = libc::printf(&arr)
@@ -65,8 +63,6 @@ fun read() -> Res[Str, CError] {
 ```
 
 ```
-mod ffi::spp_libc::_stub
-
 fun printf(&arr: Arr[U8]) -> I32 { }
 fun scanf(buffer: &mut Arr[U8]) -> I32 { }
 ```
@@ -83,8 +79,6 @@ means the same set of stubs can be used for both platforms, and the same S++ cod
 ## `libc` stubs:
 
 ```
-mod ffi::spp_libc::_stub
-
 # Memory allocation
 fun malloc[T](size: USize) -> Arr[T] { }
 fun calloc[T](num: USize, size: USize) -> Arr[T] { }

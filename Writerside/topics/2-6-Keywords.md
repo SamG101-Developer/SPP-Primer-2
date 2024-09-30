@@ -18,7 +18,6 @@ same length, to make the code more aligned.
 
 ## Keywords
 
-- `mod`
 - `cls`
 - `sup`
 - `fun`
@@ -82,8 +81,6 @@ same length, to make the code more aligned.
 
 ### Module Level Keywords {collapsible="true"}
 
-`mod`
-: - Define a module to be included in the module tree for compilation.
 
 `cls`
 : - Define a [class](7-1-Class-Definition.md) (state only: attributes).
