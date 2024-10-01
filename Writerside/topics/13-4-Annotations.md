@@ -31,14 +31,7 @@ provide further information to the S++ compiler.
   used in the `main.pp` file, and it falls through to all modules.
 
 #### Encapsulation Annotations
-- **`@public()`**: This makes a method, class or module public. This maps to both the visibility and linkage
-  attributes in LLVM, as-well as symbol access in S++. Fine-grained control can be achieved by using `@protected` or
-  `@private`, with `@friend` to allow access to specific types.
-- **`@protected()/@private`**: This marks a method, class, or module as private/protected. Protected modules are only
-  accessible to this module and submodules, where-as private modules can only be accessed by same-namespace modules.
-  Linkage and visibility are set accordingly.
-- **`@friend[..Friends]()`**: This allows a number of types to be marked as friends of either a module, class, or
-  function.
+- **`@public()`, `@packaged()`, `@protected(), @private()`**: See [access modifiers](7-6-Encapsulation-Access-Modifiers.md#access-modifiers)
 
 #### Compiler Output Annotations
 - **`@deprecated(message: Str)`**: This marks a method, class, or module as deprecated. The `message` argument is a
