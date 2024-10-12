@@ -60,13 +60,10 @@ same length, to make the code more aligned.
 - `@no_std`
 - `@use_unstable`
 - `@public`
-- `@packaged`
 - `@protected`
 - `@private`
 - `@friend`
 - `@deprecated`
-- `@obsolete`
-- `@warning`
 - `@abstract_method`
 - `@virtual_method`
 

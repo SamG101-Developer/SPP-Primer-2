@@ -82,6 +82,7 @@
         <toc-element topic="11-3-Second-Class-Borrows.md"/>
         <toc-element topic="11-4-Law-of-Exclusivity.md"/>
         <toc-element topic="11-5-Pinning.md"/>
+        <toc-element topic="11-6-Volatile.md"/>
     </toc-element>
     <toc-element topic="12-Parallelism-Concurrency.md">
         <toc-element topic="12-1-Parallelism.md"/>

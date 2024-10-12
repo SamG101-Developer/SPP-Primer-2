@@ -45,7 +45,7 @@ errors.
 fun print(string: Str) -> Res[I32, CError] {
     let arr = Arr[U8]::from(string)
     let res = libc::printf(&arr)
-    ret res.map_err(|_| CError::new("Failed to print"))
+    res.map_err(|_| CError::new("Failed to print"))
     
     ret case res then
         >= 0 { Pass(value=res) }
@@ -55,6 +55,7 @@ fun print(string: Str) -> Res[I32, CError] {
 fun read() -> Res[Str, CError] {
     let mut buffer = Arr[U8](length=256)
     let res = libc::scanf(&mut buffer)
+    res.map_err(|_| CError::new("Failed to read"))
     
     ret case res then
         >= 0 { Pass(value=Str::from(buffer)) }

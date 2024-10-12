@@ -15,10 +15,10 @@ it is the default.
 
 ```
 sup BaseClass {
-    @virtualmethod
+    @virtual_method
     fun method(&self) -> Void { }
     
-    @abstractmethod
+    @abstract_method
     fun abstract_method(&self) -> Void { }
 }
 

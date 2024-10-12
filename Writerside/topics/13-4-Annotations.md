@@ -23,6 +23,8 @@ provide further information to the S++ compiler.
   is rarely executed.
 - **`@hot()`**: Maps to the `llvm::hot` function attribute. This attribute is used to specify that the function
   is frequently executed.
+- **`@cc(convention: CallingConvention)`**: Maps to the `llvm::cc` function attribute. This attribute is used to specify
+  the calling convention of the function. The `convention` argument must be one of the `CallingConvention` enum values.
 
 #### Main Module Annotations
 - **`@no_std()`**: This marks a project as not using the `std` library. Only the `main.spp` file can use this
@@ -36,10 +38,6 @@ provide further information to the S++ compiler.
 #### Compiler Output Annotations
 - **`@deprecated(message: Str)`**: This marks a method, class, or module as deprecated. The `message` argument is a
   string that will be printed when the deprecated item is used.
-- **`@obsolete(message: Str)`**: This marks a method, class, or module as obsolete. The `message` argument is a
-  string that will be printed when the obsolete item is used.
-- **`@warning(message: Str)`**: This marks a method, class, or module as having a warning. The `message` argument is a
-  string that will be printed when the warning item is used.
 
 #### Method Annotations
 - **`@abstract_method()`**: This marks a method as abstract, and must be overridden in any subclasses. Abstract methods
@@ -53,6 +51,15 @@ Custom annotations work like Python annotations. They take a function or a class
 function is defined, or after the class is instantiated. Custom annotations are defined as functions too:
 
 #### Custom Function Annotations
+
+<secondary-label ref="doc-sect-subj-update"/>
+
+<secondary-label ref="feature-not-impl-yet"/>
+
+<secondary-label ref="feature-subj-change"/>
+
+> **This is a work in progress feature and is subject to change.**
+> {style="warning"}
 
 ```
 @my_decorator(message="Debug")
