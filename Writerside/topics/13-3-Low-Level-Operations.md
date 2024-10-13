@@ -6,8 +6,19 @@
 
 ## Low Level Operations
 
-S++ utilizes `libc` for low-level operations, such as io, time, random number generation, and threading. This allows S++
-to be platform independent, as `libc` is available on all platforms.
+S++ utilizes `libc` and `pthreads` for low-level operations, such as io, time, random number generation, and threading.
+This allows S++ to be platform independent, as `libc` is available on all platforms. The library file in the folder must
+be of the format: `<lib_name>-<platform>-<arch>.<ext>`, where `<platform>` is the platform name, `<arch>` is the
+processor architecture, and `<ext>` is the file extension. For example:
+- `libc-win32-amd64.dll` for `libc` on Windows, running on an `x64` processor.
+
+Only the correct library for the platform will be loaded, and the correct functions will be called. This means that
+whilst the other versions won't be used, for the sake of distribution, they are included in the project.
+
+### Libraries Pre-Loaded
+- `libc` for general low-level operations.
+- `pthreads` for threading operations.
+- `socket` for network operations.
 
 ## Implementation
 
@@ -76,28 +87,3 @@ and `&mut Arr[U8] @SPP` to `U8* @C`. The results from C will be `int @C`, which 
 While `libc` is the standard C library for Unix-like systems, Windows uses other libraries. It was decided that
 the `UCRT` library would be used for Window's low level operations linking, because it uses the same api as `libc`. This
 means the same set of stubs can be used for both platforms, and the same S++ code can be used on both platforms.
-
-## `libc` stubs:
-
-```
-# Memory allocation
-fun malloc[T](size: USize) -> Arr[T] { }
-fun calloc[T](num: USize, size: USize) -> Arr[T] { }
-fun realloc[T](ptr: Arr[T], size: USize) -> Arr[T] { }
-fun free[T](ptr: Arr[T]) -> Void { }
-
-# Memory manipulation
-fun memcpy[T](dest: &mut Arr[T], src: &Arr[T], size: USize) -> Void { }
-fun memset[T](dest: &mut Arr[T], value: T, size: USize) -> Void { }
-fun memcmp[T](ptr1: &Arr[T], ptr2: &Arr[T], size: USize) -> I32 { }
-fun memmove[T](dest: &mut Arr[T], src: &Arr[T], size: USize) -> Void { }
-
-# File operations
-fun fopen(path: Arr[U8], modes: Arr[U8]) -> File { }
-fun fclose(stream: File) -> U32 { }
-fun fread[T](ptr: &mut Att[T], size: USize, num: USize, stream: File) -> USize { }
-fun fwrite[T](ptr: &Att[T], size: USize, num: USize, stream: File) -> USize { }
-fun fseek(stream: File, offset: I64, origin: I32) -> I32 { }
-fun ftell(stream: File) -> I64 { }
-
-```
