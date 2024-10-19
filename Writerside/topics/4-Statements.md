@@ -7,6 +7,8 @@
 **Contents**
 
 - [](4-1-Variables.md)
+- [](4-2-Assignment.md)
+- [](4-3-Global-Constants.md)
 - `ret` Statement
 - `exit` Statement
 - `skip` Statement

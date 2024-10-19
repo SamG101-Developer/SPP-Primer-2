@@ -196,6 +196,4 @@ fun main() -> Void {
 
 ## Global Constants
 
-S++ allows for global constants to be defined. These are variables that are defined at the top level of a file, and
-cannot be mutated. The values assignable to global constants must be constant expressions: these are literals, or object
-instantiations whose arguments are all constant expressions.
+See the section on [global constants](4-3-Global-Constants.md) for more.

@@ -11,6 +11,10 @@ written that is more flexible, and can be re-used in more places. Generics in S+
 instead of the commonly used `<>` tokens in Rust and Java. This is because the `<` and `>` tokens are used for boolean
 comparisons.
 
+Like C++ and Rust, there are 2 types of generics in S++:
+- **Type Generics**: These are the most common type of generics, and are used to define a type that can be any type.
+- **Value Generics**: These are used to define a compile-time constant that can be any value, like `Array[T, n]`.
+
 Generics are used in the following ways:
 - **Function Generics**: Generics can be used in functions to allow for the function parameters to be of any type. This
   increases the flexibility of the function, and allows for the function to be re-used in more places.

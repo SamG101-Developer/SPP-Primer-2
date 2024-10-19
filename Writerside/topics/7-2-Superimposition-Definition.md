@@ -69,6 +69,13 @@ coupling between classes, and a more organized way to manage inheritance.
 
 The [methods](#) and [inheritance](#) sections provide more detail on how superimposition can be used.
 
+## Generic parameters
+
+The generic parameters passed to a `sup` block must be inheritable from the type being superimposed over. Any additional
+generics are non-constrained and not possible to give types, and as such, are not allowed. Generic parameters must be
+either required or variadic, because as all the generic arguments are inferable, it isn't possible for them to be
+optional.
+
 ## Superimposing generic variants of the same class
 
 A generic class can be superimposed multiple times, with different generic arguments. If these classes contain
