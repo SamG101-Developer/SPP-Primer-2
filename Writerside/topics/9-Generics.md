@@ -8,4 +8,5 @@
 **Contents**
 - [](9-1-Generics-Inference.md)
 - [](9-2-Generic-Constraints.md)
-- [](9-3-Specialization.md)
+- [](9-3-Type-Generics.md)
+- [](9-4-Comptime-Value-Generics.md)
