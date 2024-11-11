@@ -17,23 +17,28 @@ fun foo(a: U32) -> Void { std::print("Num") }
 ```
 
 ```
-cls __Mock_foo { }
+cls $Foo { }
 
-sup __Mock_foo ext FunRef[Void, (Str)] {
+sup $Foo ext FunRef[Void, (Str)] {
     fun call_ref(&self, a: Str) -> Void {
         std::print("Str")
     }
 }
 
-sup __Mock_foo ext FunRef[Void, (U32)] {
+sup $Foo ext FunRef[Void, (U32)] {
     fun call_ref(&self, a: U32) -> Void {
         std::print("Num")
     }
 }
 
-let foo = __Mock_foo()
+cmp foo: $Foo = $Foo()
 ```
 
 This allows [overloading](8-3-Function-Overloading.md) to be implemented in a way that is consistent with the rest of
 the language, and allows for functions to be passed around as first-class citizens. This is a critical feature for a
 language that is designed to be functional, and allows for a lot of flexibility in how functions are used in S++.
+
+## TLDR
+
+Instead of functions `foo` on the class, there is a single attribute `foo: $Foo`, and the `$Foo` type has multiple
+`Fun___` classes superimposed over it.

@@ -17,15 +17,14 @@ also applies to generic type arguments and parameters.
 
 #### Variables & Values
 
-A variable is a named memory location that can store a value. A value is the data that is stored in the memory location.
+A variable is a named memory location. A value is the data that is stored in the memory location. A value can be moved
+between variables. Not every variable has a value.
 
 #### Owned Object
 
-An owned object is the value being stored in a variable. The term "owned" refers to the fact that the actual value is
-being referred, not a borrowed instance of the value. This means the owned object's owner is responsible for the value's
-lifetime, and when the owner goes out of scope, the value is deallocated. An owned object can be moved into another
-variable. If this new variable belongs to an outer frame (ie returning or yielding an owned object), then the lifetime
-of the owned object will be extended to match the new scope that the new owner variable resides in.
+An owned object is a value that is stored in a variable. The term "owned" refers to the fact that the value is being
+referred to, and not a borrowed instance of it. This means that the variable containing the value is responsible for the
+value's lifetime; the variable going out of scope causes de-allocation of the value.
 
 #### Borrowed Object
 

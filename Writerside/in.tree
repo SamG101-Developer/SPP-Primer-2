@@ -10,7 +10,8 @@
     <toc-element topic="1-Introduction.md">
         <toc-element topic="1-1-Terms-Definitions.md"/>
         <toc-element topic="1-2-Key-Features-Benefits.md"/>
-        <toc-element topic="1-3-Todo.md"/>
+        <toc-element topic="1-3-Project-Structure.md"/>
+        <toc-element topic="1-4-S-Commands.md"/>
     </toc-element>
     <toc-element topic="2-Lexical-Structure.md">
         <toc-element topic="2-3-Whitespace-Line-Termination.md"/>
@@ -43,6 +44,7 @@
         <toc-element topic="5-9-Flow-Typing.md"/>
         <toc-element topic="5-10-Type-Shorthands.md"/>
         <toc-element topic="5-11-Type-Inference.md"/>
+        <toc-element topic="5-12-Type-Aliasing.md"/>
         <toc-element topic="5-13-Type-Casting-Conversion.md"/>
         <toc-element topic="5-14-Type-Comparisons.md"/>
     </toc-element>
