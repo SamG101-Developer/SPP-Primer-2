@@ -79,7 +79,7 @@ Project
 The `spp.toml` configuration file is a TOML file that contains metadata about the project. The following is an example
 of a `spp.toml` file:
 
-```toml
+```
 [project]
 name = "Project"
 version = "0.1.0"

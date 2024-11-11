@@ -64,3 +64,7 @@ mutated:
 | `Y`     | `fun f(mut x: &T) -> Void`     | `x` can be re-assigned     | `x` can not be mutated |
 | `Y`     | `fun f(x: &mut T) -> Void`     | `x` can not be re-assigned | `x` can be mutated     |
 | `Y`     | `fun f(mut x: &mut T) -> Void` | `x` can be re-assigned     | `x` can be mutated     |
+
+## Destructuring Borrows
+
+The destructuring variable syntax allows for owned objects to
