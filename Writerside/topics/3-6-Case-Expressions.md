@@ -12,8 +12,9 @@ branching expression is named the `case` expression, and uses the `then` keyword
 patterns.
 
 Both the `is` and `==` operators are usable in the `case` expression. The `is` operator is used for pattern matching
-against destructuring. The `==` cannot be used, because destructuring does not provide an entire object. Tuples can
-sometimes use either, if an entire literal is provided with no bindings.
+against destructuring. Comparison operators can be used for regular comparisons. A comparison expression can be done
+against multiple values in one branch, but destructuring is limited to 1 pattern per branch, ont he count that different
+variables could be introduced depending on teh pattern being matched.
 
 ## Usages
 
@@ -76,7 +77,7 @@ else { "hello stranger" }
 ### Pattern Matching (Object Destructure + Variant Types)
 
 Because type-comparisons allow a composite type to be assigned to a variant type container, this also works for the type
-comparisons of destructuring. That is, a variant type can be destructured by its composite types.
+comparisons of destructuring. That is, a variant type can be destructured into its composite types.
 
 ```
 case optional_string then

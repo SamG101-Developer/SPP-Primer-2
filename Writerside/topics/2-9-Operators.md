@@ -20,8 +20,8 @@
 | `%%=`    | Modulo assignment          | `std::ops::ModAssign`    | 0          |
 | `**=`    | Exponentiation assignment  | `std::ops::PowAssign`    | 0          |
 | `??`     | Null coalescing            | `std::ops::NullCoalesce` | 1          |
-| `\|\`    | Logical OR                 | `std::ops::Or`           | 2          |
-| `&&`     | Logical AND                | `std::ops::And`          | 3          |
+| `or`     | Logical OR                 | `std::ops::Or`           | 2          |
+| `and`    | Logical AND                | `std::ops::And`          | 3          |
 | `==`     | Equality                   | `std::ops::Eq`           | 4          |
 | `!=`     | Inequality                 | `std::ops::Ne`           | 4          |
 | `>`      | Greater than               | `std::ops::Gt`           | 4          |
@@ -69,19 +69,8 @@ associated with the operator. Operator classes are generic, allowing for any typ
 but they default to `Self` for simpler default implementation.
 
 ```
-cls Vec3D {
-    x: U32
-    y: U32
-    z: U32
-}
-
-sup std::ops::Add[Rhs=Vec3D] on Vec3D {
-    fun add(self, that: Vec3D) -> Vec3D {
-        ret Vec3D(
-            x=self.x + that.x,
-            y=self.y + that.y,
-            z=self.z + that.z)
-    }
+sup BigInt ext std::ops::Add[Rhs=BigInt, Ret=BigInt] {
+    fun add(self, that: BigInt) -> BigInt { ... }
 }
 ```
 
@@ -89,4 +78,7 @@ sup std::ops::Add[Rhs=Vec3D] on Vec3D {
 
 The equality operator has 2 different uses, handled by the compiler. If the left-hand-side is an owned object, then
 the `std::ops::Eq::eq` method is used. If the left-hand-side is a borrow, then the right-hand-side must also be a
-borrow, and the equality is determined by whether the two borrows borrow the same owned object.
+borrow, and the equality is determined by whether the two borrows borrow the same owned object. This applies to
+immutable and mutable borrows, but due to the law of exclusivity, given 1 mutable borrow existing for an object, another
+mutable or immutable borrow of the same type is guaranteed to be a different object, and as such the result will be
+`false`.

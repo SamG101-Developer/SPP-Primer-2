@@ -4,59 +4,56 @@
 
 <secondary-label ref="doc-complete"/>
 
-<secondary-label ref="doc-subj-update"/>
-
 There are a number of terms that are used throughout the specification that may not be immediately clear. This section
 aims to define these terms.
 
 #### Arguments & Parameters
 
-An argument is given at the call site of the target function, and is passed to the function as a parameter. The argument
-is the value that is passed to the function, and the parameter is the variable that the argument is assigned to. This
-also applies to generic type arguments and parameters.
+An argument is given at the call site of the target function, is passed into the function, and received as a parameter.
+The argument is the value that is passed to the function, and the parameter is the variable that the argument is
+assigned to. This also applies to generic arguments and parameters.
 
 #### Variables & Values
 
-A variable is a named memory location. A value is the data that is stored in the memory location. A value can be moved
-between variables. Not every variable has a value.
+A **variable** is named memory location in a program that can store a value. It serves as a reference point for
+accessing, modifying, or performing operations on the data it holds. Variables are defined by their type, which dictates
+to the compiler how they are managed in memory.
+
+A **value** is the data that is stored in a variable. Values can represent entities such as numbers, booleans, strings,
+or more complex object structures. Values can be moved, copied and borrowed. A variable can be _borrowed from_, where it
+lends its value to another variable, but retains ownership of the value.
 
 #### Owned Object
 
-An owned object is a value that is stored in a variable. The term "owned" refers to the fact that the value is being
-referred to, and not a borrowed instance of it. This means that the variable containing the value is responsible for the
-value's lifetime; the variable going out of scope causes de-allocation of the value.
+An **owned object** is a value that resides in a memory location explicitly associated with a variable, where the
+variable holds full control and responsibility for the object's lifecycle. Unlike borrowed objects, an owned object is
+not shared, or referenced by other variables upon introduction into the current scope; it's memory is uniquely tied to
+the owning variable.
 
 #### Borrowed Object
 
-A borrowed object is a non-nullable pointer to an owned-object (a value stored in a variable). A borrowed object is
-always valid, and cannot outlive the lifetime of the owned object that is being borrowed. This is enforced by the rules
-of the memory model. A borrowed object can be either immutable or mutable, defaulting to immutable. An immutably
-borrowed object is known as a "reader" and a mutably borrowed object is known as a "writer." Taking a borrow of a borrow
-doesn't stack the borrow, ie doesn't create a `&&` type, but takes a borrow of the owned object under the original
-borrow.
+A **borrowed object** is a value accessed through a guaranteed valid reference, allowing temporary usage of memory
+managed by another variable. Borrowing enables access to a value without transferring ownership, facilitating shared or
+exclusive usage under controlled conditions. Borrowed objects will always be valid, and cannot outlive the lifetime of
+the owned object that is being borrowed.
 
 #### Move
 
-A variable "owns" a value. As such, values can be moved between variables, transferring their ownership. For
-example, `let x = y` moves the value from `y` into `x`. The variable `y` is now non-initialized. A value's ownership can
-be transferred by passing a variable as an assignment value, function argument, object initialization argument, or a
-coroutine yield. This moves the value inside the variable into the destination variable, in a different memory location.
-The original variable is now non-initialized, and cannot be used until it has been re-initialized with a new value.
+The **move** operation is a mechanism by which ownership of a value is transferred from one variable to another. After
+the move, the original variable no longer retains access to the value, and any attempt to use the variable results in a
+compile-time memory error. Typically, a move operation will occur when passing a value into a function, returning from a
+function, or assigning a value to a variable.
 
 #### Partial-Move
 
-A partial-move is the transfer of ownership of part of an object, such as moving the value of an attribute off of an
-object. This is done in the same way as a standard move, but as part of a larger object. The object whose attribute has
-been moved from is now "partially-moved", and therefore is "partially-initialized".
-
-#### Fully-Initialized Object
-
-An object is fully initialized when all of its fields have been assigned a value. All borrowed objects are fully
-initialized by default, as moving out of a borrowed context is prohibited, and taking a borrow of a partially
-initialized object is also not allowed. This ensures the validity of a borrowed object.
+A **partial move** is an operation where ownership of a subset of an owned object is transferred to another variable,
+such as the field of an object. The remaining object is now in a partially-moved state, and is considered partially
+initialized. Partially initialized objects conform to strict memory rules, similar to that of non-initialized objects.
+An owned object with no partial moves is fully-initialized.
 
 #### Definition vs Declaration
 
-In languages like C++, forward declarations are required. S++ uses a multi-stage compilation module, so definition order
-does not matter. As such, forward declarations, and any other type of declarations are not required, and have no syntax
-that would allow for it. Therefore, all operations which introduce a symbol will be referred to as definitions.
+A **declaration** introduces the name of a program entity, without specifying details, such as function without a body.
+A **definition** typically introduces the detail to a symbol. In S++, declarations are not a recognized concept, as the
+multi-stage nature of the compiler allows for symbols to be defined in any order. Therefore, all operations which
+introduce a symbol will be referred to as definitions, and all definitions fully specify the symbol.

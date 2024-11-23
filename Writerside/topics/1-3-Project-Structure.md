@@ -39,8 +39,9 @@ the required folders and files, that must reside in the project root directory -
 
 ## Version Control System & External Projects
 
-By keeping individual `vcs/ext` folders per project, it mirrors Python's virtual environment system, where each project
-has its own dependencies.
+By keeping individual `vcs` and `ext` folders per project, it mirrors Python's virtual environment system, where each
+project has its own dependencies. The `spp.toml` can be used to regenerate the project's dependencies on different
+machines.
 
 When an S++ project is run, the vcs folders are checked for updated versions of the projects, unless the `--no-update`
 flag is added to the compilation. If there is a newer version of the repository, an `info` message will be displayed
@@ -89,6 +90,9 @@ license = "MIT"
 
 [vcs]
 std = { git = "https://github.com/spp-lang/std", branch = "main" }
+
+[ffi]
+v8 = TODO
 ```
 
 A default project will contain the above sections and attributes. From the `project` section, only the `name` and

@@ -81,7 +81,6 @@
 : - Define a binary subtraction operation.
 
 `*`
-: - Import all from a module.
 : - Define a binary multiplication operation.
 
 `/`

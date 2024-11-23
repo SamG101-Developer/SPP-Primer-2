@@ -4,10 +4,6 @@
 
 <secondary-label ref="doc-complete"/>
 
-## Introduction to Comments
-
-Comments in S++ take inspiration from Python, rather than the traditional C-family of comments.
-
 ## Types of Comments
 
 Single-line, multi-line, and inline comments are supported in S++. The `#` character is used for single-line comments,
