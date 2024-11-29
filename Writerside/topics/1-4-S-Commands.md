@@ -34,7 +34,7 @@ that can be updated. See the [Project Structure](1-3-Project-Structure.md) topic
 
 ### `spp build`
 
-The `build` command is used to compile the current project. It will recursively search teh `src` folder for all `.spp`
+The `build` command is used to compile the current project. It will recursively search the `src` folder for all `.spp`
 files. The `vcs` and `ext` folders are then compiled. Finally, the stub files inside the `ffi` folder are compiled. The
 compiler will then link the `dlls` associated with the stub files, and output the binary, and dependency dlls, to the
 `bin` folder, inside a subfolder of the build type (debug or release).

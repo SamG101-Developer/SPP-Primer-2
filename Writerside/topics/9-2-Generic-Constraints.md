@@ -16,7 +16,7 @@ intersection type as the constraint.
 ### Shorthand
 
 ```
-fun function[T: Add & Sub](a: T, b: T) -> Void {
+fun function[T: Add, Sub](a: T, b: T) -> Void {
     let x = a + b;
     let y = a - b;
 }
@@ -28,7 +28,7 @@ superimposed over the type `T`.
 ### Longhand
 
 ```
-fun function[T](a: T, b: T) -> Void where [T: Add & Sub] {
+fun function[T](a: T, b: T) -> Void where [T: Add, Sub] {
     let x = a + b;
     let y = a - b;
 }
@@ -37,3 +37,26 @@ fun function[T](a: T, b: T) -> Void where [T: Add & Sub] {
 Multiple generic types can be constrained to the same constraints, by doing `where [T, U: Copy]` for example. Each
 generic can only be constrained once, for simplicity reasons. Therefore, using shorthand and longhand for 1 generic
 type, or multiple longhand constraints for the same generic type, is not allowed.
+
+## Comparison to C++ Concepts
+
+C++
+:
+```cpp
+template <typename T>
+concept Hashable = requires(T a) {
+    { std::hash<T>{}(a) } -> std::converitable_to<std::size_t>;
+};
+```
+```cpp
+template <Hashable T>
+void f(T a) {}
+```
+
+S++
+:
+```
+fun f[T: Hash](a: T) -> Void {}
+```
+This can logically be interpreted as constraining `T` to `Hash`, and constraining `a` to `T`. Or, `T` is a type of
+`Hash`, and `a` is a type of `T`.

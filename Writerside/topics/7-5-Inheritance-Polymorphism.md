@@ -4,6 +4,13 @@
 
 <secondary-label ref="doc-wip"/>
 
+## Controlled Inheritance
+
+Whilst S++ supports object-oriented programming, and encourage its use, it also controls inheritance very tightly.
+Features that assist with this include and are limited to:
+- superimposition-based inheritance - split each inheritance of a type into a separate block
+- the `Castable[T]` type used for values which will be upcast or downcast
+
 ## Method Overriding
 
 In order to override a method, the base method must be marked as either virtual, or abstract, using the `@virtualmethod`

@@ -6,6 +6,15 @@
 
 ## Object Initialization
 
+In C++ there is: default initialization, value initialization, zero initialization, copy initialization, static
+initialization, aggregate initialization, reference initialization, constant initialization, struct initialization,
+early dynamic initialization, deferred dynamic initialization, union initialization, nested initialization, direct list
+initialization, copy list initialization, explicit initialization, implicit initialization, designated initialization
+with different behaviour depending on where in the file a variable is declared/defined, the types of attributes on the
+class, the types of methods on the class, the base classes of the class, and the template arguments of the class.
+
+## Object Initialization in S++
+
 Object initialization follows function call syntax almost exactly, providing a simple and intuitive way to initialize
 objects:
 
