@@ -76,23 +76,6 @@ generics are non-constrained and not possible to give types, and as such, are no
 either required or variadic, because as all the generic arguments are inferable, it isn't possible for them to be
 optional.
 
-## Superimposing generic variants of the same class
-
-A generic class can be superimposed multiple times, with different generic arguments. If these classes contain
-attributes, then there will be multiple attributes with the same name in the class. If the subclass doesn't override the
-attribute too, then accessing the attribute is ambiguous; there is no way to know which superclasses attribute is
-desired. The resolving syntax is discussed in [postfix member access]().
-
-When instantiating an object, only stateful superclasses must be provided. If there is a generic superclass,
-say `BaseType[T]`, then the `BaseType` part of the `sup=` argument (of any generic substitution) will be the match for
-this superclass.
-
-This works because if `BaseType` has attributes, then `BaseType[U32]` and `Baseype[U64]` can't both be superimposed over
-a type, and if they don't have attributes, then they aren't required as `sup=` arguments.
-
-Whilst this does potentially reduce the expressiveness of the language, it also confines the language to a more
-predictable and understandable state.
-
 ## Superimposition Generic Constraints
 
 Combining generics with superimposition can create some problems, requiring certain restrictions to be in place such

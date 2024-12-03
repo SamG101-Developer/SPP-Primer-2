@@ -35,10 +35,5 @@ sup DerivedClass ext BaseClass {
 }
 ```
 
-Using the `@abstractmethod` to mark a method as abstract automatically marks the class as abstract, and therefore
-non-instantiable. This also means that the class cannot have any attributes, otherwise it would need to be instantiated
-for subclasses' `sup=` argument.
-
-The `BaseClass` type is abstract, and cannot be instantiated. The `DerivedClass` type is concrete, and can be
-instantiated, and because `BaseClass` is abstract, and has not attributes, it is state;ess, and doesn't have to appear
-in the `sup=` argument.
+Using the `@abstract_method` to mark a method as abstract automatically marks the class as abstract, and therefore
+non-instantiable (except for [base class initialization](7-3-Object-Initialization.md#superclasses)).

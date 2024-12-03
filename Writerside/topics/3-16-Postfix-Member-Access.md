@@ -31,7 +31,7 @@ sup C ext B {}
 
 
 fun main() -> Void {
-    let c = C(sup=(A(x=1), B(x=2)))
+    let c = C()
     std::print(c.x)
 }
 ```
@@ -45,7 +45,7 @@ correct S++ syntax for this would be:
 
 ```
 fun main() -> Void {
-    let c = C(sup=(A(x=1), B(x=2)))
+    let c = C()
     std::print(std::upcast[A](c).x)
 }
 ```

@@ -42,13 +42,13 @@ type, or multiple longhand constraints for the same generic type, is not allowed
 
 C++
 :
-```++
+```c++
 template <typename T>
 concept Hashable = requires(T a) {
     { std::hash<T>{}(a) } -> std::converitable_to<std::size_t>;
 };
 ```
-```++
+```c++
 template <Hashable T>
 void f(T a) {}
 ```
