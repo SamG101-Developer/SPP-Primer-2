@@ -42,11 +42,3 @@ loop coroutine.next() is Some(value) {
     # code
 }
 ```
-
-The code is converted into the following:
-
-```
-loop { case coroutine.next() then is Some(value) { value } } {
-    # code
-}
-```

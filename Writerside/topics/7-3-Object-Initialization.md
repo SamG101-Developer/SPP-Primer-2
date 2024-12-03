@@ -63,24 +63,33 @@ remain in `m`.
 
 ## Superclasses
 
-The `sup=` argument must be provided if the class has any stateful superclasses. These arguments must be provided in a
-tuple of all required superclasses.
+C++ provides a mechanism to initialize base classes, by calling the base classes after the `:` token in the constructor.
+As S++ doesn't have constructors, the base classes could either be provided in the object initialization, or in the
+corresponding `sup` block that extends the superclass.
+
+Because putting it in the initialization would cause a lot of duplication that couldn't be edited from one place, the
+`sup-ext` block must contain the superclass initialization, via a special method. Only superclasses that contain state
+can have initialization steps. The following example shows how `BaseClass` is initialized for `DerivedClass`:
 
 ```
-@inherit[Copy, Clone]
-cls MyType {
+cls BaseClass {
     x: BigInt
+}
+
+cls DerivedClass {
     y: BigInt
 }
 
-cls Other {
-    z: BigInt
+sup BaseClass {
+    fun f() -> Void { }
 }
 
-let o = Other(z=3)
-let obj = MyType(x=1, y=2, sup=(o,))
-```
 
-Because `Copy` and `Clone` are stateless classes (no attributes), they do not need to be provided in the `sup=`
-argument, as they don't affect the memory layout of the object. Typically, a static `new` method is defined on most
-classes, which will internally handle the super-classes being created and assigned.
+sup DerivedClass ext BaseClass {
+    # Initialization of BaseClass via method
+    
+    fun sup { ... }
+    
+    fun f() -> Void { }
+}
+```

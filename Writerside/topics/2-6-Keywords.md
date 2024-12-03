@@ -37,7 +37,7 @@ same length, to make the code more aligned.
 - `rel`
 - `where`
 - `is`
-- `as`
+- `of`
 - `true`
 - `false`
 - `self`
@@ -47,7 +47,6 @@ same length, to make the code more aligned.
 - `not`
 - `ext`
 - `in`
-- `then`
 - `async`
 
 {columns="4"}
