@@ -82,7 +82,7 @@ In the following example, the type `Point` is defined with the `Copy` type.
 
 :
 ```
-@inherit[Copy]()
+@inherits(Copy)
 cls Point {
     x: U32
     y: U32
