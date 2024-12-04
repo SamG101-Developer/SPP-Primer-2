@@ -120,20 +120,8 @@ let n = MyType(x=5, ..m)
 
 ## Design Decisions
 
-<p id="D1"><b>Attribute order</b>: Attributes can be in any order, because it is common to move attributes around in
-class prototypes as a code organization technique. This would invalidate all instances of object initialization, if
-argument order was fixed. Therefore, the decision was made to omit argument order checks from object initialization.
-Function parameter ordering is rarely changed for code organization, so their fixed order is maintained.</p>
-
-<p id="D2"><b>Default attributes</b>: In order to simplify memory rules, it was decided that objects must be fully
-initialized when initialized, rather than potentially partially-initialized. This ties in with scope-bound resource
-management. This would have led to potentially convoluted object initializers that would often have the same default
-arguments (`0` for numbers etc), so the design decision was made to automatically default any non-provided attributes.
-It is possible that standard defaults wouldn't be wanted all the time, such as a counter that started at `1`.
-Therefore, attributes can be assigned a default value in class prototypes.
-
-The combination of these three design decisions - full object initialization, all attributes optional, and custom
-optional choices, allow for a memory-safe and simple object initialization process.
-</p>
+<p id="D1"><b>Attribute order</b>: Attributes can be in any order, because it is common to move attributes around in class prototypes as a code organization technique. This would invalidate all instances of object initialization, if argument order was fixed. Therefore, the decision was made to omit argument order checks from object initialization. Function parameter ordering is rarely changed for code organization, so their fixed order is maintained.</p>
+<p id="D2"><b>Default attributes</b>: In order to simplify memory rules, it was decided that objects must be fully initialized when initialized, rather than potentially partially-initialized. This ties in with scope-bound resource management. This would have led to potentially convoluted object initializers that would often have the same default arguments (`0` for numbers etc), so the design decision was made to automatically default any non-provided attributes. It is possible that standard defaults wouldn't be wanted all the time, such as a counter that started at `1`. Therefore, attributes can be assigned a default value in class prototypes.</p>
+<p> The combination of these three design decisions - full object initialization, all attributes optional, and custom optional choices, allow for a memory-safe and simple object initialization process. </p>
 
 #### Default object inclusion
