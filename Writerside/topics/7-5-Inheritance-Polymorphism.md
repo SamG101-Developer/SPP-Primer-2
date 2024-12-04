@@ -36,4 +36,4 @@ sup DerivedClass ext BaseClass {
 ```
 
 Using the `@abstract_method` to mark a method as abstract automatically marks the class as abstract, and therefore
-non-instantiable (except for [base class initialization](7-3-Object-Initialization.md#superclasses)).
+non-instantiable (except for [base class initialization](7-3-Object-Initialization.md#base-class-initialization)).
