@@ -81,8 +81,11 @@ before yielding).
 
 :
 ```
-case condition then
-    == true { loop condition { ... } }
+case condition {
+  loop condition {
+    ...
+  }
+}
 else { ... }
 ```
 
@@ -90,6 +93,10 @@ else { ... }
 
 :
 ```
-loop condition { ... }
-else { ... }
+loop condition {
+  ...
+}
+else {
+  ...
+}
 ```

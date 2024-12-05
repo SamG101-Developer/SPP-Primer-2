@@ -17,12 +17,12 @@ variable is treated as a variant of all the types that were not checked for.
 
 ```
 let val = function_returning_option()  # Returns an Opt[Bool]
-case val then
+case val of
     is Some(val) { std::print("Value present", val) }
     is None() { std::print("No value") }
     
 let val = function_returning_result()  # Returns a Ret[Str, Err]
-case val then
+case val of
     is Pass(msg) { std::print("Pass", msg) }
     is Fail(err) { std::print("Fail", err) }
 ```

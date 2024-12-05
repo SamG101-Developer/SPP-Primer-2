@@ -72,7 +72,7 @@ fun main() -> Void {
     pin a
     
     coro = test_coroutine(&a)
-    loop case coro then is Str {
+    loop case coro is Str {
         std::print(coro)
     }
 }

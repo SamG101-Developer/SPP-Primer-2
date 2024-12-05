@@ -58,9 +58,8 @@ fun print(string: Str) -> Res[I32, CError] {
     let res = libc::printf(&arr)
     res.map_err(|_| CError::new("Failed to print"))
     
-    ret case res then
-        >= 0 { Pass(value=res) }
-        else { Fail(error=CError::new("Failed to print")) }
+    ret case res >= 0 { Pass(value=res) }
+    else { Fail(error=CError::new("Failed to print")) }
 }
 
 fun read() -> Res[Str, CError] {
@@ -68,9 +67,8 @@ fun read() -> Res[Str, CError] {
     let res = libc::scanf(&mut buffer)
     res.map_err(|_| CError::new("Failed to read"))
     
-    ret case res then
-        >= 0 { Pass(value=Str::from(buffer)) }
-        else { Fail(error=CError::new("Failed to read")) }
+    ret case res >= 0 { Pass(value=Str::from(buffer)) }
+    else { Fail(error=CError::new("Failed to read")) }
 }
 ```
 

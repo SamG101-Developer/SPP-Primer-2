@@ -26,9 +26,9 @@ to check the value of an option.
 An option is typically checked using a `case` expression, as shown below:
 
 ```
-case option then
+case option of
     is Some(value) { }
-    else { }
+    is None { }
 ```
 
 It can be seen that the `Some` type is destructured, and the `value` attribute is extracted. Flow typing will then treat
@@ -51,7 +51,7 @@ use Res[T, E] = Pass[T] | Fail[E]
 ### Result Usage
 
 ```
-case result then
+case result of
     is Pass(value) { }
     is Fail(error) { }
 ```
@@ -59,5 +59,5 @@ case result then
 ## Design Decisions
 
 - **Defining residual types as unions** rather than classes allows them to be neatly destructured.
-- **Using `case opt then is Some(value)`** rather than `case let Some(value) = opt` is a design decision to keep the
+- **Using `case opt is Some(value)`** rather than `case let Some(value) = opt` is a design decision to keep the
   syntax consistent with other pattern matching expressions.

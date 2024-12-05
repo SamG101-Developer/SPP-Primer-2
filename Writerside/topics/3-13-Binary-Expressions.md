@@ -27,7 +27,7 @@ let x = value ?? default
 The code is converted into the following:
 
 ```
-let x = case value then
+let x = case value of
     is type(value)::PassState { value }
     is type(value)::FailState { default }
 ```

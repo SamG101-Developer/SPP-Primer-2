@@ -78,10 +78,9 @@ x ??= 5
 
 ```
 let mut x = func_that_returns_opt()
-x = case x then {
+x = case x of
     is type(x)::Pass { x }
     is type(x)::Fail { 5 }
-}
 ```
 </td>
 </tr>
